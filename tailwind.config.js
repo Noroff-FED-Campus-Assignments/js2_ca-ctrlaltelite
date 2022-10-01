@@ -15,7 +15,7 @@ module.exports = {
         }),
       },
       colors: {
-        fontWhite: "hsl(0, 100%, 97%)",
+        fontWhite: "#FFFFFF",
         filterBlue: "hsl(216, 41%, 39%)",
         mainBlue: "hsl(216, 41%, 39%)",
         mainGray: "#D5D5D6",

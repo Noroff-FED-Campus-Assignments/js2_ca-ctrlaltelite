@@ -7,7 +7,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Index</h1>
+  <body class="flex">
+    <section class="login-left hidden lg:flex lg:w-1/2 bg-black">
+      hei
+      <div class="img-filter">
+        <div class="img-container"></div>
+      </div>
+    </section>
+    <section class="login-right bg-mainBlue w-screen h-screen flex lg:w-1/2">
+      <div class="form-container bg-fontWhite w-11/12 m-auto rounded-sm p-6 flex flex-col content-center text-center md:w-2/4 lg:bg-mainBlue">
+        <h1 class="text-xl mb-3">Welcome back!</h1>
+        <p class="text-xs">Log in to your existing account.</p>
+        <p class="text-xs">Dont have one yet? Sign up <a href="/newUser.html">here</a></p>
+        <form class="mt-4">
+          <input type="email" name="user-email" id="user-email" placeholder="example@stud.noroff.no" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs mb-2" />
+          <input type="password" name="user-password" id="user-password" placeholder="Password" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs" />
+          <div class="flex mt-2 mb-3">
+            <input type="checkbox" name="user-remember" id="user-remember" />
+            <label for="user-remember" class="text-xs text-gray-500 ml-1">Stay signed in</label>
+          </div>
+          <button type="submit" class="block bg-mainBlue w-full rounded-sm text-fontWhite p-1 text-sm">Log in</button>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
