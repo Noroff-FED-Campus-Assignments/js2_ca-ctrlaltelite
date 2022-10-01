@@ -13,7 +13,7 @@ module.exports = {
         profileCard: "url('https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
       },
       colors: {
-        fontWhite: "hsl(0, 100%, 97%)",
+        fontWhite: "#FFFFFF",
         filterBlue: "hsl(216, 41%, 39%)",
         mainBlue: "hsl(216, 41%, 39%)",
         mainGray: "#D5D5D6",
