@@ -5,22 +5,128 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/dist/output.css" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body>
-    <section id="profile-card">
-      <div class="bg-fontWhite mt-4 mx-8">
-        <div class="bg-mainBlue rounded-b-lg translate-y-20">
-          <div class="max-w-6xl mx-auto text-center">
+    <section id="profile-card" class="mx-8 mt-8">
+      <div>
+        <div>
+          <img
+            class="h-40 w-full rounded-t-lg"
+            src="https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            alt="Profile banner"
+          />
+        </div>
+        <div class="bg-mainBlue rounded-b-lg">
+          <div class="text-center">
             <div class="flex flex-col">
-              <div
-                class="flex flex-col items-center -translate-y-8"
-              >
-                <img src="./img/2017-05-06 16.23.08.jpg" class="w-32 rounded-full" alt="Profile picture" />
+              <div class="flex flex-col w-full items-center -translate-y-10">
+                <img
+                  src="./img/2017-05-06 16.23.08.jpg"
+                  class="w-32 h-32 rounded-full border-2"
+                  alt="Profile picture"
+                />
                 <h2 class="text-fontWhite">Audun i klassen</h2>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="grid grid-cols-1 mx-8 mt-8 md:grid-cols-3">
+      <div
+        id="left-section"
+        class="container flex-col items-center mx-auto space-y-0 md:flex-row md:space-y-0"
+      >
+        <div class="flex flex-col md-32 space-y-12">
+          <div class="flex justify-center md:justify-start">
+            <a
+              href="#"
+              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
+              >User info</a
+            >
+          </div>
+          <div>
+            <ul class="">
+              <li><a href="#">Willy</a></li>
+              <li><a href="#">Student</a></li>
+              <li><a href="#">Kristiansand, Norway</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col md-32 space-y-12">
+          <div class="flex justify-center md:justify-start">
+            <a
+              href="#"
+              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
+              >Friends</a
+            >
+          </div>
+          <div>
+            <ul class="flex">
+              <li>
+                <a href="#"><img src="" alt="Friend profile picture" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Friend profile picture" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Friend profile picture" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Friend profile picture" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col md-32 space-y-12">
+          <div class="flex justify-center md:justify-start">
+            <a
+              href="#"
+              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
+              >Photos</a
+            >
+          </div>
+          <div>
+            <ul class="flex">
+              <li>
+                <a href="#"><img src="" alt="Your pictures" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Your pictures" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Your pictures" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="" alt="Your pictures" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        id="right-section"
+        class="container flex flex-col col-span-2 items-center mx-auto space-y-0 md:px-6 md:flex-row md:space-y-0"
+      >
+        <!-- Right item -->
+        <div class="space-y-4 h-full w-full border border-mainBlue">
+          <div class="flex m-4">
+            <img
+              src="./img/2017-05-06 16.23.08.jpg"
+              class="w-16 h-16 rounded-full"
+              alt="Profile picture"
+            />
+            <h3 class="m-4 text-center">Audun i klassen</h3>
+          </div>
+          <p class="mx-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora voluptatibus quisquam minus? Quidem, laborum? Placeat, temporibus. Harum quisquam laudantium saepe sapiente vero aliquam eum, molestiae dolorem placeat perspiciatis possimus molestias iusto necessitatibus, quia dicta perferendis neque non obcaecati ex aut cumque iste numquam? Sequi nostrum natus deleniti sapiente quae tempora earum sunt officia vel perspiciatis ex ad facilis minus nisi omnis dolorum totam, maxime illo magni molestias quasi, beatae aliquam error corporis. Excepturi molestiae nihil nobis repellendus, consectetur ducimus impedit autem doloribus! Expedita vitae, odio alias blanditiis molestias iure! Pariatur ipsum cumque, laborum odit veritatis temporibus porro error magni?</p>
+          <hr class="mx-4">
+          <div>
+            <p class="mx-4">150K</p>
+          </div>
+          <div class="flex mx-4">
+            <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
+            <button class="bg-mainBlue w-1/4 text-white">Comment</button>
           </div>
         </div>
       </div>
