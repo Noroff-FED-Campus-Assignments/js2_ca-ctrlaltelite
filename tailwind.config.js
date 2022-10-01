@@ -10,9 +10,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        profileBackgroundImage: (theme) => ({
-          profileCard: "url('https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
-        }),
+        profileCard: "url('https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
       },
       colors: {
         fontWhite: "#FFFFFF",
