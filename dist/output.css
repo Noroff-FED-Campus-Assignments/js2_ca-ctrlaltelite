@@ -639,10 +639,6 @@ video {
   margin: auto;
 }
 
-.m-32 {
-  margin: 8rem;
-}
-
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -728,16 +724,13 @@ video {
   margin-left: 0.25rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
 
-.mb-12 {
-  margin-bottom: 3rem;
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -992,6 +985,10 @@ video {
 
 .bg-\[url\(\'\/img\/login-bg\.jpg\'\)\] {
   background-image: url('/img/login-bg.jpg');
+}
+
+.bg-\[url\(\'\/img\/new-user-bg\.jpg\'\)\] {
+  background-image: url('/img/new-user-bg.jpg');
 }
 
 .bg-cover {
