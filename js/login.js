@@ -36,7 +36,7 @@ async function logIn(url, data) {
 
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            if (jsonResponse.ok) {
+            if (response.status === 200) {
                 window.location.href = ".././feed.html";
             } else {
                 console.log(`Wrong username or password`);
