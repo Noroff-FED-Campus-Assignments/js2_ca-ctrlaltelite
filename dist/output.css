@@ -977,8 +977,8 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\/img\/login-bg\.jpg\'\)\] {
-  background-image: url('/img/login-bg.jpg');
+.bg-\[url\(\'\.\/img\/login-bg\.jpg\'\)\] {
+  background-image: url('./img/login-bg.jpg');
 }
 
 .bg-\[url\(\'\/img\/new-user-bg\.jpg\'\)\] {
