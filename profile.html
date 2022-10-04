@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="/js/getUserProfiles.js" defer></script>
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body>
+   
     <nav class="flex md:mb-28">
       <div class="upper-navbar flex justify-between fixed top-0 bg-mainBlue w-full h-12 md:h-14">
         <section class="upper-navbar-left self-center w-full">
@@ -37,7 +39,7 @@
               <h2 class="text-md text-right">Name Namesen</h2>
               <h6 class="text-xs text-right">Online</h6>
             </div>
-            <img src="/img/2017-05-06 16.23.08.jpg" alt="Profile img" class="w-8 h-8 rounded-full" />
+            <img  src="/img/2017-05-06 16.23.08.jpg" alt="Profile img" class="w-8 h-8 rounded-full" />
           </div>
           <svg class="settings-icon self-center w-5 h-5 mr-2 fill-fontWhite height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg"><g id="settings_gear_mechanic_setup" data-name="settings, gear, mechanic, setup"><path d="m25.9258 17.564a10.1518 10.1518 0 0 0 0-3.128l2.0283-1.486a1.001 1.001 0 0 0 .356-1.1274 12.9247 12.9247 0 0 0 -2.5362-4.3936 1.0015 1.0015 0 0 0 -1.1548-.2563l-2.8798 1.2673a1 1 0 0 0 .8056 1.831l2.1861-.9619a10.9214 10.9214 0 0 1 1.43 2.4761l-1.9267 1.4116a.9987.9987 0 0 0 -.3838 1.0273 8.0916 8.0916 0 0 1 0 3.5528.9987.9987 0 0 0 .3838 1.0273l1.9267 1.4116a10.9214 10.9214 0 0 1 -1.43 2.4761l-2.1861-.9619a1.0019 1.0019 0 0 0 -1.0815.1811 8.1 8.1 0 0 1 -3.0767 1.7764 1.0005 1.0005 0 0 0 -.6977.8462l-.26 2.374a10.9408 10.9408 0 0 1 -2.8584 0l-.26-2.374a1.0005 1.0005 0 0 0 -.6977-.8462 8.1 8.1 0 0 1 -3.0767-1.7764 1 1 0 0 0 -1.0811-.1811l-2.1861.9619a10.9214 10.9214 0 0 1 -1.43-2.4761l1.9267-1.4116a.9987.9987 0 0 0 .3843-1.0278 8.0916 8.0916 0 0 1 0-3.5528.9987.9987 0 0 0 -.3838-1.0273l-1.9268-1.4116a10.9214 10.9214 0 0 1 1.43-2.4761l2.1861.9619a1.002 1.002 0 0 0 1.0815-.1811 8.1 8.1 0 0 1 3.0763-1.7764 1.0005 1.0005 0 0 0 .6977-.8462l.26-2.374a10.9408 10.9408 0 0 1 2.8584 0l.26 2.374a1 1 0 1 0 1.9882-.2178l-.3426-3.1269a.9992.9992 0 0 0 -.7984-.8716 12.8963 12.8963 0 0 0 -5.0732 0 .9992.9992 0 0 0 -.7984.8716l-.2734 2.5a10.146 10.146 0 0 0 -2.7085 1.5634l-2.3022-1.0131a1.0025 1.0025 0 0 0 -1.1548.2563 12.9247 12.9247 0 0 0 -2.5361 4.3936 1.001 1.001 0 0 0 .356 1.1274l2.0282 1.4863a10.1518 10.1518 0 0 0 0 3.128l-2.0283 1.486a1.001 1.001 0 0 0 -.356 1.1274 12.9247 12.9247 0 0 0 2.5362 4.3936.998.998 0 0 0 1.1548.2563l2.3022-1.0131a10.146 10.146 0 0 0 2.7085 1.5639l.2734 2.5a.9992.9992 0 0 0 .7984.8716 12.8925 12.8925 0 0 0 5.0732 0 .9992.9992 0 0 0 .7984-.8716l.2734-2.5a10.146 10.146 0 0 0 2.7085-1.5639l2.3022 1.0131a.997.997 0 0 0 1.1548-.2563 12.9247 12.9247 0 0 0 2.5361-4.3933 1.001 1.001 0 0 0 -.356-1.1274z"/><path d="m16 13a3 3 0 1 0 3 3 3.0033 3.0033 0 0 0 -3-3zm0 4a1 1 0 1 1 1-1 1.0013 1.0013 0 0 1 -1 1z"/></g></svg>
         </section>
@@ -151,7 +153,7 @@
             </ul>
           </div>
         </div>
-        <div class="flex flex-col md-32 space-y-12">
+        <div class="flex flex-col md-32">
           <div class="flex justify-center md:justify-start">
             <a
               href="#"
@@ -159,21 +161,8 @@
               >Friends</a
             >
           </div>
-          <div>
-            <ul class="flex">
-              <li>
-                <a href="#"><img src="" alt="Friend profile picture" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Friend profile picture" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Friend profile picture" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Friend profile picture" /></a>
-              </li>
-            </ul>
+          <div class="friends-container m-2">
+            
           </div>
         </div>
         <div class="flex flex-col md-32 space-y-12">
