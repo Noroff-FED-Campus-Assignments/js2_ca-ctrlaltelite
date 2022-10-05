@@ -1,5 +1,6 @@
 const singleUserPostsContainer = document.querySelector("#right-section");
 const userName = localStorage.getItem("userName");
+const token = localStorage.getItem("accessToken");
 
 const url = `https://nf-api.onrender.com/api/v1/social/profiles/${userName}?_posts=true`;
 async function getSingleUserPosts() {
