@@ -1,15 +1,12 @@
-const token = localStorage.getItem("accessToken");
+import { authHeader } from "./components/authHeader.mjs";
 
-const headers = {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-};
+const token = localStorage.getItem("accessToken");
 
 async function getUserProfiles() {
   try {
-    const response = await fetch("https://nf-api.onrender.com/api/v1/social/profiles/", headers);
+    const response = await fetch("https://nf-api.onrender.com/api/v1/social/profiles/", authHeader(token));
     const json = await response.json();
+    console.log(json);
     let img = "/img/userPlacegolder.png";
 
     for (let i = 0; i < 4; i++) {
