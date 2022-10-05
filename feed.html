@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="/js/menuToggle.js" defer></script>
+    <script src="/js/feedPosts.js" defer></script>
+    <script src="./js/getUserProfiles.js" defer></script>
+    <script src="./js/friendProfile.js" defer></script>
+    <script src="./js/userInfo.js" defer></script>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
-  <body>
+  <body class="h-full">
     <nav class="flex md:mb-28">
       <div class="upper-navbar flex justify-between fixed top-0 bg-mainBlue w-full h-12 md:h-14">
         <section class="upper-navbar-left self-center w-full">
@@ -117,10 +121,9 @@
               >User info</p
             >
             <div>
-              <ul class="hidden md:block mb-12">
-                <li><p>Name: Willy Andersen</p></li>
-                <li><p>Occupation: Student</p></li>
-                <li><p>Lives: Stavanger, Norway</p></li>
+              <ul id="user-info" class="hidden md:block mb-12">
+
+                
               </ul>
             </div>
           </div>
@@ -132,37 +135,8 @@
             >
           </div>
           <div>
-            <ul class="hidden md:block mb-12">
-              <li>
-                <div class="flex m-4">
-                  <img
-                    src="./img/2017-05-06 16.23.08.jpg"
-                    class="w-16 h-16 rounded-full"
-                    alt="Profile picture"
-                  />
-                  <h3 class="m-4 text-center">Audun i klassen</h3>
-                </div>
-              </li>
-              <li>
-                <div class="flex m-4">
-                  <img
-                    src="./img/2017-05-06 16.23.08.jpg"
-                    class="w-16 h-16 rounded-full"
-                    alt="Profile picture"
-                  />
-                  <h3 class="m-4 text-center">Audun i klassen</h3>
-                </div>
-              </li>
-              <li>
-                <div class="flex m-4">
-                  <img
-                    src="./img/2017-05-06 16.23.08.jpg"
-                    class="w-16 h-16 rounded-full"
-                    alt="Profile picture"
-                  />
-                  <h3 class="m-4 text-center">Audun i klassen</h3>
-                </div>
-              </li>
+            <ul id="profile-picture" class="hidden md:block mb-12">
+
             </ul>
           </div>
         </div>
@@ -216,26 +190,8 @@
             </div>
           </div>
         </div>
-        <div class="container flex flex-col col-span-1 items-center mx-auto space-y-0 md:col-span-2 md:px-6 md:flex-row md:space-y-0">
-          <div class="space-y-4 h-full w-full border border-mainBlue">
-            <div class="flex m-4">
-              <img
-                src="./img/2017-05-06 16.23.08.jpg"
-                class="w-16 h-16 rounded-full"
-                alt="Profile picture"
-              />
-              <h3 class="m-4 text-center">Audun i klassen</h3>
-            </div>
-            <p class="mx-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora voluptatibus quisquam minus? Quidem, laborum? Placeat, temporibus. Harum quisquam laudantium saepe sapiente vero aliquam eum, molestiae dolorem placeat perspiciatis possimus molestias iusto necessitatibus, quia dicta perferendis neque non obcaecati ex aut cumque iste numquam? Sequi nostrum natus deleniti sapiente quae tempora earum sunt officia vel perspiciatis ex ad facilis minus nisi omnis dolorum totam, maxime illo magni molestias quasi, beatae aliquam error corporis. Excepturi molestiae nihil nobis repellendus, consectetur ducimus impedit autem doloribus! Expedita vitae, odio alias blanditiis molestias iure! Pariatur ipsum cumque, laborum odit veritatis temporibus porro error magni?</p>
-            <hr class="mx-4">
-            <div>
-              <p class="mx-4">150K</p>
-            </div>
-            <div class="flex mx-4 py-5">
-              <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-              <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-            </div>
-          </div>
+        <div id="post-section" class="container flex-col col-span-1 items-center mx-auto space-y-0 md:col-span-2 md:px-6 md:flex-row md:space-y-0">
+          
         </div>
       </section>
       <section class="flex-col col-span-1 order-3 hidden md:block" id="right-section">
@@ -264,27 +220,10 @@
               >Suggestions</p
             >
             <div
-            class="container flex flex-col col-span-1 items-center mx-auto space-y-0 my-8 md:col-span-2 md:px-6 md:flex-row md:space-y-0"
+            id="suggestions-post"
+            class="container flex-col col-span-1 items-center mx-auto space-y-0 my-8 md:col-span-2 md:px-6 md:flex-row md:space-y-0"
           >
-            <div class="space-y-4 mb-8 h-full w-full border border-mainBlue">
-              <div class="flex m-4">
-                <img
-                  src="./img/2017-05-06 16.23.08.jpg"
-                  class="w-16 h-16 rounded-full"
-                  alt="Profile picture"
-                />
-                <h3 class="m-4 text-center">Audun i klassen</h3>
-              </div>
-              <p class="mx-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora voluptatibus</p>
-              <hr class="mx-4">
-              <div>
-                <p class="mx-4">150K</p>
-              </div>
-              <div class="flex mx-4 py-5">
-                <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-                <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
