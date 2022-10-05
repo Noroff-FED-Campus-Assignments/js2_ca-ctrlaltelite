@@ -124,5 +124,4 @@ async function getSugesstionFeed(url, data) {
 
 
 getSugesstionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody)
-
-getFeedPosts(`${url}/api/v1/social/posts?_author=true`, postBody);
+getFeedPosts(`${url}/api/v1/social/posts/?_author=true`, postBody);
