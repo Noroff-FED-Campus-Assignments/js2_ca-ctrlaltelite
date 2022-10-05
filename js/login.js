@@ -1,11 +1,6 @@
 "use strict"
 const url = "https://nf-api.onrender.com";
-// const token = {
-//     headers: {
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsIm5hbWUiOiJqb3dhbmRlciIsImVtYWlsIjoiam93YW5kZXIuam93YW5kZXJAbm9yb2ZmLm5vIiwiYXZhdGFyIjpudWxsLCJiYW5uZXIiOm51bGwsImlhdCI6MTY2MjgyMzgxOH0.Z3F3MIe-S3vixXKh6ww4MDy3hmtBDq4wJgRh_aZ8KqU',
 
-//     },
-//   }
 const loginForm = document.querySelector("#login-form");
 const userEmail = document.querySelector("#user-email");
 const password = document.querySelector("#user-password");
