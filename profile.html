@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="/js/getUserProfiles.js" defer></script>
+    <script src="/js/addPost.js" defer></script>
+    <script src="/js/getSingleUserPosts.js" defer></script>
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body>
@@ -41,7 +43,7 @@
             </div>
             <img  src="/img/2017-05-06 16.23.08.jpg" alt="Profile img" class="w-8 h-8 rounded-full" />
           </div>
-          <svg class="settings-icon self-center w-5 h-5 mr-2 fill-fontWhite height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg"><g id="settings_gear_mechanic_setup" data-name="settings, gear, mechanic, setup"><path d="m25.9258 17.564a10.1518 10.1518 0 0 0 0-3.128l2.0283-1.486a1.001 1.001 0 0 0 .356-1.1274 12.9247 12.9247 0 0 0 -2.5362-4.3936 1.0015 1.0015 0 0 0 -1.1548-.2563l-2.8798 1.2673a1 1 0 0 0 .8056 1.831l2.1861-.9619a10.9214 10.9214 0 0 1 1.43 2.4761l-1.9267 1.4116a.9987.9987 0 0 0 -.3838 1.0273 8.0916 8.0916 0 0 1 0 3.5528.9987.9987 0 0 0 .3838 1.0273l1.9267 1.4116a10.9214 10.9214 0 0 1 -1.43 2.4761l-2.1861-.9619a1.0019 1.0019 0 0 0 -1.0815.1811 8.1 8.1 0 0 1 -3.0767 1.7764 1.0005 1.0005 0 0 0 -.6977.8462l-.26 2.374a10.9408 10.9408 0 0 1 -2.8584 0l-.26-2.374a1.0005 1.0005 0 0 0 -.6977-.8462 8.1 8.1 0 0 1 -3.0767-1.7764 1 1 0 0 0 -1.0811-.1811l-2.1861.9619a10.9214 10.9214 0 0 1 -1.43-2.4761l1.9267-1.4116a.9987.9987 0 0 0 .3843-1.0278 8.0916 8.0916 0 0 1 0-3.5528.9987.9987 0 0 0 -.3838-1.0273l-1.9268-1.4116a10.9214 10.9214 0 0 1 1.43-2.4761l2.1861.9619a1.002 1.002 0 0 0 1.0815-.1811 8.1 8.1 0 0 1 3.0763-1.7764 1.0005 1.0005 0 0 0 .6977-.8462l.26-2.374a10.9408 10.9408 0 0 1 2.8584 0l.26 2.374a1 1 0 1 0 1.9882-.2178l-.3426-3.1269a.9992.9992 0 0 0 -.7984-.8716 12.8963 12.8963 0 0 0 -5.0732 0 .9992.9992 0 0 0 -.7984.8716l-.2734 2.5a10.146 10.146 0 0 0 -2.7085 1.5634l-2.3022-1.0131a1.0025 1.0025 0 0 0 -1.1548.2563 12.9247 12.9247 0 0 0 -2.5361 4.3936 1.001 1.001 0 0 0 .356 1.1274l2.0282 1.4863a10.1518 10.1518 0 0 0 0 3.128l-2.0283 1.486a1.001 1.001 0 0 0 -.356 1.1274 12.9247 12.9247 0 0 0 2.5362 4.3936.998.998 0 0 0 1.1548.2563l2.3022-1.0131a10.146 10.146 0 0 0 2.7085 1.5639l.2734 2.5a.9992.9992 0 0 0 .7984.8716 12.8925 12.8925 0 0 0 5.0732 0 .9992.9992 0 0 0 .7984-.8716l.2734-2.5a10.146 10.146 0 0 0 2.7085-1.5639l2.3022 1.0131a.997.997 0 0 0 1.1548-.2563 12.9247 12.9247 0 0 0 2.5361-4.3933 1.001 1.001 0 0 0 -.356-1.1274z"/><path d="m16 13a3 3 0 1 0 3 3 3.0033 3.0033 0 0 0 -3-3zm0 4a1 1 0 1 1 1-1 1.0013 1.0013 0 0 1 -1 1z"/></g></svg>
+          <svg class="settings-icon self-center w-5 h-5 mr-2 fill-fontWhite" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg"><g id="settings_gear_mechanic_setup" data-name="settings, gear, mechanic, setup"><path d="m25.9258 17.564a10.1518 10.1518 0 0 0 0-3.128l2.0283-1.486a1.001 1.001 0 0 0 .356-1.1274 12.9247 12.9247 0 0 0 -2.5362-4.3936 1.0015 1.0015 0 0 0 -1.1548-.2563l-2.8798 1.2673a1 1 0 0 0 .8056 1.831l2.1861-.9619a10.9214 10.9214 0 0 1 1.43 2.4761l-1.9267 1.4116a.9987.9987 0 0 0 -.3838 1.0273 8.0916 8.0916 0 0 1 0 3.5528.9987.9987 0 0 0 .3838 1.0273l1.9267 1.4116a10.9214 10.9214 0 0 1 -1.43 2.4761l-2.1861-.9619a1.0019 1.0019 0 0 0 -1.0815.1811 8.1 8.1 0 0 1 -3.0767 1.7764 1.0005 1.0005 0 0 0 -.6977.8462l-.26 2.374a10.9408 10.9408 0 0 1 -2.8584 0l-.26-2.374a1.0005 1.0005 0 0 0 -.6977-.8462 8.1 8.1 0 0 1 -3.0767-1.7764 1 1 0 0 0 -1.0811-.1811l-2.1861.9619a10.9214 10.9214 0 0 1 -1.43-2.4761l1.9267-1.4116a.9987.9987 0 0 0 .3843-1.0278 8.0916 8.0916 0 0 1 0-3.5528.9987.9987 0 0 0 -.3838-1.0273l-1.9268-1.4116a10.9214 10.9214 0 0 1 1.43-2.4761l2.1861.9619a1.002 1.002 0 0 0 1.0815-.1811 8.1 8.1 0 0 1 3.0763-1.7764 1.0005 1.0005 0 0 0 .6977-.8462l.26-2.374a10.9408 10.9408 0 0 1 2.8584 0l.26 2.374a1 1 0 1 0 1.9882-.2178l-.3426-3.1269a.9992.9992 0 0 0 -.7984-.8716 12.8963 12.8963 0 0 0 -5.0732 0 .9992.9992 0 0 0 -.7984.8716l-.2734 2.5a10.146 10.146 0 0 0 -2.7085 1.5634l-2.3022-1.0131a1.0025 1.0025 0 0 0 -1.1548.2563 12.9247 12.9247 0 0 0 -2.5361 4.3936 1.001 1.001 0 0 0 .356 1.1274l2.0282 1.4863a10.1518 10.1518 0 0 0 0 3.128l-2.0283 1.486a1.001 1.001 0 0 0 -.356 1.1274 12.9247 12.9247 0 0 0 2.5362 4.3936.998.998 0 0 0 1.1548.2563l2.3022-1.0131a10.146 10.146 0 0 0 2.7085 1.5639l.2734 2.5a.9992.9992 0 0 0 .7984.8716 12.8925 12.8925 0 0 0 5.0732 0 .9992.9992 0 0 0 .7984-.8716l.2734-2.5a10.146 10.146 0 0 0 2.7085-1.5639l2.3022 1.0131a.997.997 0 0 0 1.1548-.2563 12.9247 12.9247 0 0 0 2.5361-4.3933 1.001 1.001 0 0 0 -.356-1.1274z"/><path d="m16 13a3 3 0 1 0 3 3 3.0033 3.0033 0 0 0 -3-3zm0 4a1 1 0 1 1 1-1 1.0013 1.0013 0 0 1 -1 1z"/></g></svg>
         </section>
       </div>
       <div class="side-menu hidden h-screen bg-mainBlue w-3/5 absolute right-0 z-10 flex-col">
@@ -107,6 +109,7 @@
         </div>
       </div> 
     </nav>
+    <main class="md:w-11/12 m-auto">
     <section id="profile-card" class="mx-8 mt-8">
       <div>
         <div>
@@ -138,6 +141,25 @@
         class="container flex-col items-center mx-auto space-y-0 md:flex-row md:space-y-0"
       >
         <div class="flex flex-col md-32 space-y-12">
+          <div class="add-post w-full flex flex-col col-span-2 items-center mb-8 mx-auto space-y-0 md:flex-row md:space-y-0">
+            <div class="space-y-4 h-full w-full  rounded-sm bg-mainBlue">
+              <div class="flex flex-col m-4">
+                <p class="text-fontWhite mb-5">Write a post</p>
+                <div class="flex w-full">
+                <img src="./img/2017-05-06 16.23.08.jpg" class="profile-img w-8 h-8 rounded-full " alt="Profile picture">
+                <div class="flex flex-col w-full ml-3">
+                  <input class="postTitle rounded-sm p-1 text-xs" type="text" name="postTitle" id="postTitle" placeholder="Title*">
+                  <p class="required-title hidden text-xs text-fontWhite mt-1">Field required</p>
+                  <input class="postContent rounded-sm mt-2 p-2 text-xs" type="textarea" name="postContent" id="postContent" placeholder="Write something*">
+                  <p class="required-text hidden text-xs text-fontWhite mt-1">Field required</p>
+                </div>
+              </div>
+              </div>
+              <div class="flex justify-end mx-4 py-5">
+                <button id="postBtn" class=" bg-fontWhite text-mainBlue w-1/4 h-6 rounded-sm">Post</button>
+              </div>
+            </div>
+          </div>
           <div class="flex justify-center md:justify-start">
             <a
               href="#"
@@ -190,31 +212,12 @@
             </ul>
           </div>
         </div>
+        
       </div>
-      <div
-        id="right-section"
-        class="container flex flex-col col-span-2 items-center mx-auto space-y-0 md:px-6 md:flex-row md:space-y-0"
-      >
-        <div class="space-y-4 h-full w-full border border-mainBlue">
-          <div class="flex m-4">
-            <img
-              src="./img/2017-05-06 16.23.08.jpg"
-              class="w-16 h-16 rounded-full"
-              alt="Profile picture"
-            />
-            <h3 class="m-4 text-center">Audun i klassen</h3>
-          </div>
-          <p class="mx-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora voluptatibus quisquam minus? Quidem, laborum? Placeat, temporibus. Harum quisquam laudantium saepe sapiente vero aliquam eum, molestiae dolorem placeat perspiciatis possimus molestias iusto necessitatibus, quia dicta perferendis neque non obcaecati ex aut cumque iste numquam? Sequi nostrum natus deleniti sapiente quae tempora earum sunt officia vel perspiciatis ex ad facilis minus nisi omnis dolorum totam, maxime illo magni molestias quasi, beatae aliquam error corporis. Excepturi molestiae nihil nobis repellendus, consectetur ducimus impedit autem doloribus! Expedita vitae, odio alias blanditiis molestias iure! Pariatur ipsum cumque, laborum odit veritatis temporibus porro error magni?</p>
-          <hr class="mx-4">
-          <div>
-            <p class="mx-4">150K</p>
-          </div>
-          <div class="flex m-4 py-5">
-            <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-            <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-          </div>
-        </div>
+      <div id="right-section" class="container w-full flex flex-col col-span-2 mx-auto space-y-0 md:pl-16 md:flex-row md:space-y-0">
+            <section class="user-posts w-full"></section>
       </div>
     </section>
+  </main>
   </body>
 </html>
