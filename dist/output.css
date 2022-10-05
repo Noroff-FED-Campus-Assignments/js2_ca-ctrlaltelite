@@ -731,7 +731,6 @@ video {
   margin-top: 2rem;
 }
 
-
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -739,7 +738,6 @@ video {
 .mt-1 {
   margin-top: 0.25rem;
 }
-
 
 .block {
   display: block;
@@ -1082,11 +1080,6 @@ video {
 }
 
 .text-fontWhite {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
