@@ -6,8 +6,6 @@ const headers = {
   },
 };
 
-console.log(token);
-
 async function getUserProfiles() {
   try {
     const response = await fetch("https://nf-api.onrender.com/api/v1/social/profiles/", headers);
