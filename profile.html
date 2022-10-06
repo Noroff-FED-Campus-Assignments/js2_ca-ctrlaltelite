@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="/js/getUserProfiles.js" type="module" defer></script>
+    <!-- <script src="/js/getUserProfiles.js" type="module" defer></script>
     <script src="/js/addPost.js" defer></script>
-    <script src="/js/getSingleUserPosts.js" defer></script>
+    <script src="/js/getSingleUserPosts.js" defer></script> -->
+    <script src="/js/profile.js" type="module" defer></script>
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body>
@@ -112,23 +113,13 @@
     <main class="md:w-11/12 m-auto">
     <section id="profile-card" class="mx-8 mt-8">
       <div>
-        <div>
-          <img
-            class="h-40 w-full rounded-t-lg"
-            src="https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            alt="Profile banner"
-          />
+        <div class="profile-banner h-2">
         </div>
         <div class="bg-mainBlue rounded-b-lg">
           <div class="text-center">
             <div class="flex flex-col">
-              <div class="flex flex-col w-full items-center -translate-y-10">
-                <img
-                  src="./img/2017-05-06 16.23.08.jpg"
-                  class="w-32 h-32 rounded-full border-2"
-                  alt="Profile picture"
-                />
-                <h2 class="text-fontWhite">Audun i klassen</h2>
+              <div class="user-profile-info flex flex-col w-full items-center -translate-y-10">
+                
               </div>
             </div>
           </div>
@@ -146,7 +137,7 @@
               <div class="flex flex-col m-4">
                 <p class="text-fontWhite mb-5">Write a post</p>
                 <div class="flex w-full">
-                <img src="./img/2017-05-06 16.23.08.jpg" class="profile-img w-8 h-8 rounded-full " alt="Profile picture">
+                <img src="" onerror="this.src = '/img/userPlacegolder.png';" class="profile-img create-post-avatar w-8 h-8 rounded-full " alt="Profile picture">
                 <div class="flex flex-col w-full ml-3">
                   <input class="postTitle rounded-sm p-1 text-xs" type="text" name="postTitle" id="postTitle" placeholder="Title*">
                   <p class="required-title hidden text-xs text-fontWhite mt-1">Field required</p>
@@ -169,9 +160,9 @@
           </div>
           <div>
             <ul class="">
-              <li><a href="#">Willy</a></li>
-              <li><a href="#">Student</a></li>
-              <li><a href="#">Kristiansand, Norway</a></li>
+              <li class="user-info-name"></li>
+              <li>Student</li>
+              <li>Kristiansand, Norway</li>
             </ul>
           </div>
         </div>
