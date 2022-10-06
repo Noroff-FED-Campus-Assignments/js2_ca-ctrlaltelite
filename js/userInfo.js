@@ -1,6 +1,7 @@
 "use strict"
 const userInformation = document.querySelector("#user-info");
 const userAvatar = document.querySelector("#user-avatar");
+const userAvatarNav = document.querySelector("#user-avatar-nav");
 
 async function insertUserInformation(url, data) {
     try {
@@ -49,6 +50,13 @@ async function insertUserAvatar(url, data) {
                                         <button class="bg-mainGray w-1/4 h-8">Comment</button>
                                     </div>
                                 </div>`;
+
+        userAvatarNav.innerHTML = `<div class="flex items-center ml-4 mr-4">
+                                        <div class="profile-name text-xs mr-5">
+                                        <h2 class="text-md text-right">${profileContainer.name}</h2>
+                                        <h6 class="text-xs text-right">Online</h6>
+                                    </div>
+                                    <img src="${jsonResponse.avatar}" alt="Profile img" class="w-8 h-8 rounded-full" />`;
         
 
     } catch (error) {
