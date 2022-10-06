@@ -45,7 +45,7 @@ async function insertUserAvatar(url, data) {
                                         <input class="w-3/4 h-8 mx-auto self-center border border-mainBlue" placeholder="Write something" type="text">
                                     </div>
                                     <div class="flex justify-end mx-4 py-5">
-                                        <button class="bg-mainGray w-1/4 h-8">Comment</button>
+                                        <button class="bg-mainGraychec w-1/4 h-8">Comment</button>
                                     </div>
                                 </div>`;
 
