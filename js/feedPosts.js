@@ -1,44 +1,45 @@
-"use strict"
+"use strict";
 const url = "https://nf-api.onrender.com";
 
 const feedContainer = document.querySelector("#post-section");
 const suggestionFeed = document.querySelector("#suggestions-post");
 
-
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
-
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+};
 
 const postBody = {
-    "title": "",
-    "body": ""
-}
+  title: "",
+  body: "",
+};
 
 async function getFeedPosts(url, data) {
-    try {
-        const postData = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
-        const response = await fetch(url, headers);
-        // console.log(response);
-        const jsonResponse = await response.json();
-        // console.log(jsonResponse);
+  try {
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(url, headers);
+    // console.log(response);
+    const jsonResponse = await response.json();
+    // console.log(jsonResponse);
 
-        for (let i = 0; i < jsonResponse.length; i++) {
-            // console.log(jsonResponse[i].body);
-            if (i === 3) {
-                break;
-            }
-            const postInformation = jsonResponse[i];
-            feedContainer.innerHTML += `<div class="space-y-4 mb-8 w-full border border-mainBlue">
+    for (let i = 0; i < jsonResponse.length; i++) {
+      // console.log(jsonResponse[i].body);
+      if (i === 3) {
+        break;
+      }
+      const postInformation = jsonResponse[i];
+
+      feedContainer.innerHTML += `<div class="space-y-4 mb-8 w-full border border-mainBlue bg">
+      <article class="bg-amber-300">HEI!!!</article>
+      
             <div class="flex m-4">
                 <img
                     src="${postInformation.author.avatar}"
@@ -56,40 +57,38 @@ async function getFeedPosts(url, data) {
                 <p class="mx-4">150K</p>
             </div>
             <div class="mx-4 py-5 hidden">
-                <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-                <button class="bg-mainGray w-1/4 text-white">Comment</button>
+                <input class="w-3/4 h-8 border border-mainBlue bg-amber-300" placeholder="Write something" type="text">
+                <button class="bg-mainBlue w-1/4 text-white">Comment</button>
+                <button class="bg-red-200"> HEIIIII</button>
             </div>
         </div>`;
-
-        }
-
-        
-    } catch (error) {
-        console.log(error);   
     }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function getSugesstionFeed(url, data) {
-    try {
-        const postData = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
-        const response = await fetch(url, headers);
-        //console.log(response);
-        const jsonResponse = await response.json();
-        // console.log(jsonResponse);
+  try {
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(url, headers);
+    //console.log(response);
+    const jsonResponse = await response.json();
+    // console.log(jsonResponse);
 
-        for (let i = 0; i < jsonResponse.length; i++) {
-            // console.log(jsonResponse[i].body);
-            if (i === 3) {
-                break;
-            }
-            const postInformation = jsonResponse[i];
-            suggestionFeed.innerHTML = `<div class="space-y-4 mb-8 w-full border border-mainBlue">
+    for (let i = 0; i < jsonResponse.length; i++) {
+      // console.log(jsonResponse[i].body);
+      if (i === 3) {
+        break;
+      }
+      const postInformation = jsonResponse[i];
+      suggestionFeed.innerHTML = `<div class="space-y-4 mb-8 w-full border border-mainBlue">
                                             <div class="flex m-4">
                                                 <img
                                                     src="${postInformation.author.avatar}"
@@ -111,17 +110,11 @@ async function getSugesstionFeed(url, data) {
                                                 <button class="bg-mainBlack hidden w-1/4 text-white">Comment</button>
                                             </div>
                                         </div>`;
-
-        }
-
-        
-    } catch (error) {
-        console.log(error);   
     }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-
-
-
-getSugesstionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody)
+getSugesstionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
 getFeedPosts(`${url}/api/v1/social/posts/?_author=true`, postBody);
