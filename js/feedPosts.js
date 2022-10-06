@@ -39,27 +39,27 @@ async function getFeedPosts(url, data) {
             }
             const postInformation = jsonResponse[i];
             feedContainer.innerHTML += `<div class="space-y-4 mb-8 w-full border border-mainBlue">
-                                            <div class="flex m-4">
-                                                <img
-                                                    src="${postInformation.author.avatar}"
-                                                    class="w-16 h-16 rounded-full"
-                                                    alt="Profile picture"
-                                                />
-                                                <h3 class="m-4 text-center">${postInformation.author.name}</h3>
-                                            </div>
-                                                <div class="mx-4"">${postInformation.title}
-                                                    <img src="${postInformation.media}"/>
-                                                    <p>${postInformation.body}</p>
-                                                    <hr class="mx-4">
-                                                </div>
-                                            <div>
-                                                <p class="mx-4">150K</p>
-                                            </div>
-                                            <div class="mx-4 py-5 hidden">
-                                                <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-                                                <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-                                            </div>
-                                        </div>`;
+            <div class="flex m-4">
+                <img
+                    src="${postInformation.author.avatar}"
+                    class="w-16 h-16 rounded-full"
+                    alt="Profile picture"
+                />
+                <h3 class="m-4 text-center">${postInformation.author.name}</h3>
+            </div>
+                <div class="mx-4"">${postInformation.title}
+                    <img src="${postInformation.media}"/>
+                    <p>${postInformation.body}</p>
+                    <hr class="mx-4">
+                </div>
+            <div>
+                <p class="mx-4">150K</p>
+            </div>
+            <div class="mx-4 py-5 hidden">
+                <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
+                <button class="bg-mainGray w-1/4 text-white">Comment</button>
+            </div>
+        </div>`;
 
         }
 
@@ -108,7 +108,7 @@ async function getSugesstionFeed(url, data) {
                                             </div>
                                             <div class="mx-4 py-5 hidden">
                                                 <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-                                                <button class="bg-mainBlue w-1/4 text-white">Comment</button>
+                                                <button class="bg-mainBlack hidden w-1/4 text-white">Comment</button>
                                             </div>
                                         </div>`;
 
