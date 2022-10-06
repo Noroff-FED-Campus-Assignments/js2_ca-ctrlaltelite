@@ -79,7 +79,7 @@ async function getSugesstionFeed(url, data) {
             body: JSON.stringify(data)
         };
         const response = await fetch(url, headers);
-        // console.log(response);
+        //console.log(response);
         const jsonResponse = await response.json();
         // console.log(jsonResponse);
 
