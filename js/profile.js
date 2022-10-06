@@ -49,7 +49,7 @@ async function listOfFriends() {
   for (let i = 0; i < followers.length; i++) {
     if (i < 3) {
       document.querySelector(".friends-container").innerHTML += `
-       <div class="flex items-center mb-2">
+       <div class="flex items-center mb-2 bg-black">
        <img src="${followers[i].avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
        <p class="ml-2">${followers[i].name}</p>
        </div>
@@ -62,3 +62,5 @@ listOfFriends();
 
 // Populerer siden med brukerens poster. Det går an at brukeren har
 // tomme poster, eller poster med "string", så jeg filtrerer bort disse
+
+document.querySelector("body").innerHTML = `<div class="bg-mainBlue">HEI</div>`;
