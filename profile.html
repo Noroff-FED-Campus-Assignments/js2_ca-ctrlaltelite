@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- <script src="/js/getUserProfiles.js" type="module" defer></script>
+   
+    <script src="/js/menuToggle.js" defer></script>
     <script src="/js/addPost.js" defer></script>
-    <script src="/js/getSingleUserPosts.js" defer></script> -->
     <script src="/js/profile.js" type="module" defer></script>
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body>
    
     <nav class="flex md:mb-28">
-      <div class="upper-navbar flex justify-between fixed top-0 bg-mainBlue w-full h-12 md:h-14">
+      <div class="upper-navbar flex z-50 justify-between fixed top-0 bg-mainBlue w-full h-12 md:h-14">
         <section class="upper-navbar-left self-center w-full">
           <svg class="logo w-20 h-auto ml-2" width="111" height="37" viewBox="0 0 111 37" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.5268 14.0113C19.2195 12.9514 15.6122 14.3952 13.9504 17.4436L13.8004 17.7183L11.0075 16.2472L11.1598 15.965C13.5357 11.5622 18.7215 9.47602 23.4907 11.0043C28.9562 12.7556 31.9781 18.627 30.2268 24.0928L30.13 24.395L27.1229 23.4316L27.2197 23.1294C28.4394 19.3217 26.3342 15.2315 22.5268 14.0113Z" fill="#FAFAFA" />
@@ -131,6 +131,24 @@
         id="left-section"
         class="container flex-col items-center mx-auto space-y-0 md:flex-row md:space-y-0"
       >
+      <div class="profile-info mb-5">
+        <div class="profile-banner-container">
+  
+        </div>
+        <div class="bg-mainBlue rounded-b-sm">
+          <div class="text-center">
+            <div class="flex flex-col">
+              <div class="flex flex-col w-full items-center -translate-y-10">
+                <div class="profile-img-container"></div>
+                <div class="profile-name-container">
+                  
+                </div>
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="flex flex-col md-32 space-y-12">
           <div class="add-post w-full flex flex-col col-span-2 items-center mb-8 mx-auto space-y-0 md:flex-row md:space-y-0">
             <div class="space-y-4 h-full w-full  rounded-sm bg-mainBlue">
@@ -151,59 +169,62 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center md:justify-start">
-            <a
-              href="#"
-              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
-              >User info</a
-            >
+          <div class="user-info-container flex flex-col justify-center md:justify-start">
+            <div class="p-2 text-xs flex items-center w-full rounded-sm text-fontWhite bg-mainBlue">
+              <svg class="w-5 h-5 mr-2  fill-fontWhite" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg">
+                <g id="user_account_people_man" data-name="user, account, people, man">
+                  <path d="m23.7373 16.1812a1 1 0 1 0 -1.4062 1.4218 8.9378 8.9378 0 0 1 2.6689 6.397c0 1.2231-3.5059 3-9 3s-9-1.7778-9-3.002a8.9385 8.9385 0 0 1 2.6348-6.3627 1 1 0 1 0 -1.4141-1.4141 10.9267 10.9267 0 0 0 -3.2207 7.7788c0 3.2476 5.667 5 11 5s11-1.7524 11-5a10.92 10.92 0 0 0 -3.2627-7.8188z" />
+                  <path d="m16 17a7 7 0 1 0 -7-7 7.0081 7.0081 0 0 0 7 7zm0-12a5 5 0 1 1 -5 5 5.0059 5.0059 0 0 1 5-5z" />
+                </g>
+              </svg>
+              <h3>User info</h3>
+            </div>
+            <div>
+              <ul class="mt-2 p-3">
+                <li class="flex items-center"><svg class="w-5 h-5 mr-2  fill-black" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg">
+                  <g id="user_account_people_man" data-name="user, account, people, man">
+                    <path d="m23.7373 16.1812a1 1 0 1 0 -1.4062 1.4218 8.9378 8.9378 0 0 1 2.6689 6.397c0 1.2231-3.5059 3-9 3s-9-1.7778-9-3.002a8.9385 8.9385 0 0 1 2.6348-6.3627 1 1 0 1 0 -1.4141-1.4141 10.9267 10.9267 0 0 0 -3.2207 7.7788c0 3.2476 5.667 5 11 5s11-1.7524 11-5a10.92 10.92 0 0 0 -3.2627-7.8188z" />
+                    <path d="m16 17a7 7 0 1 0 -7-7 7.0081 7.0081 0 0 0 7 7zm0-12a5 5 0 1 1 -5 5 5.0059 5.0059 0 0 1 5-5z" />
+                  </g>
+                </svg><h2 class="user-info-name"></h2></li>
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 mr-2  fill-black" id="Layer_1" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m28 7h-6v-1a3 3 0 0 0 -3-3h-6a3 3 0 0 0 -3 3v1h-6a3 3 0 0 0 -3 3v3a4.7 4.7 0 0 0 .913 2.879c.027.036.059.067.087.1v10.021a3 3 0 0 0 3 3h22a3 3 0 0 0 3-3v-10.018c.028-.036.06-.066.087-.1a4.7 4.7 0 0 0 .913-2.882v-3a3 3 0 0 0 -3-3zm-16-1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h-8zm-9 4a1 1 0 0 1 1-1h24a1 1 0 0 1 1 1v3c0 2.6-3.231 4.137-5.47 4.137h-.53v-1a1 1 0 0 0 -2 0v1h-10v-1a1 1 0 0 0 -2 0v1h-.53c-2.253 0-5.47-1.537-5.47-4.137zm24 17h-22a1 1 0 0 1 -1-1v-8.191a8.255 8.255 0 0 0 4.47 1.328h.53v1a1 1 0 0 0 2 0v-1h10v1a1 1 0 0 0 2 0v-1h.53a8.262 8.262 0 0 0 4.47-1.327v8.19a1 1 0 0 1 -1 1z" /></svg>Occupation</li>
+                <li class="flex items-center@æ">
+                  <svg class="w-5 h-5 mr-2  fill-black" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg">
+                    <g id="alert_report_flag" data-name="alert, report, flag"><path d="m24 5h-16a1 1 0 0 0 0 2h15v8h-14v-5a1 1 0 0 0 -2 0v16a1 1 0 0 0 2 0v-9h15a1 1 0 0 0 1-1v-10a1 1 0 0 0 -1-1z" /></g>
+                  </svg>Location</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <ul class="">
-              <li class="user-info-name"></li>
-              <li>Student</li>
-              <li>Kristiansand, Norway</li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex flex-col md-32">
-          <div class="flex justify-center md:justify-start">
-            <a
-              href="#"
-              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
-              >Friends</a
-            >
-          </div>
-          <div class="friends-container m-2">
-            
-          </div>
-        </div>
-        <div class="flex flex-col md-32 space-y-12">
-          <div class="flex justify-center md:justify-start">
-            <a
-              href="#"
-              class="p-3 px-6 pt-2 w-full rounded text-fontWhite bg-mainBlue"
-              >Photos</a
-            >
-          </div>
-          <div>
-            <ul class="flex">
-              <li>
-                <a href="#"><img src="" alt="Your pictures" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Your pictures" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Your pictures" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="" alt="Your pictures" /></a>
-              </li>
-            </ul>
+     
+          
+          <div class="user-following-container flex flex-col justify-center md:justify-start">
+            <div class="p-2 text-xs flex items-center w-full rounded-sm text-fontWhite bg-mainBlue">
+              <svg class="w-5 h-5 mr-2  fill-fontWhite" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg">
+                <g id="group_friend_team_unity" data-name="group, friend, team, unity">
+                  <path d="m15.1479 19.2617a.9992.9992 0 0 0 -.0649 1.4121 6.5573 6.5573 0 0 1 1.667 4.4453c0 .6631-2.0884 1.8809-5.5 1.8809s-5.5-1.2187-5.5-1.8818a6.6583 6.6583 0 0 1 1.6455-4.4219 1 1 0 1 0 -1.4853-1.34 8.568 8.568 0 0 0 -2.16 5.7627c-.0002 2.213 3.2239 3.881 7.4998 3.881s7.5-1.668 7.5-3.8809a8.5483 8.5483 0 0 0 -2.1895-5.7929.9989.9989 0 0 0 -1.4126-.0645z" />
+                  <path d="m26.0605 13.3262a1 1 0 1 0 -1.4775 1.3476 6.559 6.559 0 0 1 1.667 4.4453c0 .6631-2.0884 1.8809-5.5 1.8809a1 1 0 0 0 0 2c4.2759 0 7.5-1.668 7.5-3.8809a8.551 8.551 0 0 0 -2.1895-5.7929z" />
+                  <path d="m11.25 19a5 5 0 1 0 -5-5 5.0059 5.0059 0 0 0 5 5zm0-8a3 3 0 1 1 -3 3 3.0033 3.0033 0 0 1 3-3z" />
+                  <path d="m20.75 13a5 5 0 1 0 -5-5 5.0059 5.0059 0 0 0 5 5zm0-8a3 3 0 1 1 -3 3 3.0033 3.0033 0 0 1 3-3z" />
+                </g>
+              </svg>
+              <h3>Following</h3>
+            </div>
+            <div class="user-followers-container"></div>
           </div>
         </div>
-        
+        <div class="user-media-container text-xs flex flex-col justify-center md:justify-start">
+          <div class="p-2 flex items-center w-full rounded-sm text-fontWhite bg-mainBlue">
+            <svg class="w-5 h-5 mr-2  fill-fontWhite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512">
+              <g id="picture_attach_image_landscape" data-name="picture, attach, image, landscape">
+                <path d="M28,19.959a1,1,0,0,0,1-1V6a3.0008,3.0008,0,0,0-3-3H6a2.9786,2.9786,0,0,0-2.1211.8789A3.02,3.02,0,0,0,3,6V20a1.0013,1.0013,0,0,0,1.7077.7064L10,15.4141l7.293,7.2929a1,1,0,0,0,1.414-1.414L17.4141,20,20,17.4141l7,7V26a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V24a1,1,0,0,0-2,0v2a2.9794,2.9794,0,0,0,.8789,2.1211A3.02,3.02,0,0,0,6,29H26a3.0008,3.0008,0,0,0,3-3V24a1.0133,1.0133,0,0,0-.2938-.7079L20.707,15.293a.9994.9994,0,0,0-1.414,0L16,18.5859,10.707,13.293a.9994.9994,0,0,0-1.414,0L5,17.5859V6A1,1,0,0,1,6,5H26a1,1,0,0,1,1,1V18.959A1,1,0,0,0,28,19.959Z" />
+                <path d="M19,10a3,3,0,1,0,3-3A3.0033,3.0033,0,0,0,19,10Zm4,0a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,23,10Z" />
+              </g>
+            </svg>
+            <h3>Pictures</h3>
+          </div>
+        </div>
+       
       </div>
       <div id="right-section" class="container w-full flex flex-col col-span-2 mx-auto space-y-0 md:pl-16 md:flex-row md:space-y-0">
             <section class="user-posts w-full"></section>
