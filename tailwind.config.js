@@ -21,6 +21,14 @@ module.exports = {
         mainGray: "#D5D5D6",
         mainBlack: "#000000",
       },
+      fontFamily: {
+        bodyText: [
+          "Roboto"
+        ],
+        headers: [
+          "Cairo"
+        ]
+      },
     },
   },
   plugins: [],

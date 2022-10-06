@@ -38,18 +38,17 @@ async function getFeedPosts(url, data) {
       const postInformation = jsonResponse[i];
 
       feedContainer.innerHTML += `<div class="space-y-4 mb-8 w-full border border-mainBlue bg">
-      <article class="bg-amber-300">HEI!!!</article>
-      
             <div class="flex m-4">
                 <img
                     src="${postInformation.author.avatar}"
-                    class="w-16 h-16 rounded-full"
+                    class="w-8 h-8 rounded-full"
                     alt="Profile picture"
+                    onerror="this.src = '/img/userPlacegolder.png';"
                 />
                 <h3 class="m-4 text-center">${postInformation.author.name}</h3>
             </div>
                 <div class="mx-4"">${postInformation.title}
-                    <img src="${postInformation.media}"/>
+                    <img src="${postInformation.media} onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full"/>
                     <p>${postInformation.body}</p>
                     <hr class="mx-4">
                 </div>
@@ -57,9 +56,8 @@ async function getFeedPosts(url, data) {
                 <p class="mx-4">150K</p>
             </div>
             <div class="mx-4 py-5 hidden">
-                <input class="w-3/4 h-8 border border-mainBlue bg-amber-300" placeholder="Write something" type="text">
+                <input class="w-3/4 h-8 border border-mainBlue placeholder="Write something" type="text">
                 <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-                <button class="bg-red-200"> HEIIIII</button>
             </div>
         </div>`;
     }
@@ -89,32 +87,46 @@ async function getSugesstionFeed(url, data) {
       }
       const postInformation = jsonResponse[i];
       suggestionFeed.innerHTML = `<div class="space-y-4 mb-8 w-full border border-mainBlue">
-                                            <div class="flex m-4">
-                                                <img
-                                                    src="${postInformation.author.avatar}"
-                                                    class="w-16 h-16 rounded-full"
-                                                    alt="Profile picture"
-                                                />
-                                                <h3 class="m-4 text-center">${postInformation.author.name}</h3>
-                                            </div>
-                                                <div class="mx-4"">${postInformation.title}
-                                                    <img src="${postInformation.media}"/>
-                                                    <p>${postInformation.body}</p>
-                                                    <hr class="mx-4">
-                                                </div>
-                                            <div>
-                                                <p class="mx-4">150K</p>
-                                            </div>
-                                            <div class="mx-4 py-5 hidden">
-                                                <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
-                                                <button class="bg-mainBlack hidden w-1/4 text-white">Comment</button>
-                                            </div>
-                                        </div>`;
+                                    <div class="flex m-4">
+                                        <img
+                                            src="${postInformation.author.avatar}"
+                                            class="w-8 h-8 rounded-full"
+                                            alt="Profile picture"
+                                            onerror="this.src = '/img/userPlacegolder.png';"
+                                        />
+                                        <h3 class="m-4 text-center">${postInformation.author.name}</h3>
+                                    </div>
+                                        <div class="mx-4"">${postInformation.title}
+                                            <img src="${postInformation.media}" />
+                                            <p>${postInformation.body}</p>
+                                            <hr class="mx-4">
+                                        </div>
+                                    <div>
+                                        <p class="mx-4">150K</p>
+                                    </div>
+                                    <div class="mx-4 py-5 hidden">
+                                        <input class="w-3/4 h-8 border border-mainBlue" placeholder="Write something" type="text">
+                                        <button class="bg-mainBlack hidden w-1/4 text-white">Comment</button>
+                                    </div>
+                                </div>`;
     }
   } catch (error) {
     console.log(error);
   }
 }
+
+/**
+ * 
+ * @param {number} a 
+ * @param {number} b 
+ * @returns number
+ * @example 2 + 2 returns 4
+ */
+function sum(a, b) {
+  return a + b;
+}
+
+sum(2 + 2);
 
 getSugesstionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
 getFeedPosts(`${url}/api/v1/social/posts/?_author=true`, postBody);

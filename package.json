@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "build": "tailwindcss -i ./input.css -o ./dist/output.css",
-      "watch": "tailwindcss -i ./input.css -o ./dist/output.css --watch",
-      "live": "live-server",
-      "docs": "jsdoc -c ./conf.json -r"
+    "build": "tailwindcss -i ./input.css -o ./dist/output.css",
+    "watch": "tailwindcss -i ./input.css -o ./dist/output.css --watch",
+    "live": "live-server",
+    "docs": "jsdoc -c ./conf.json -r"
   },
   "repository": {
     "type": "git",
