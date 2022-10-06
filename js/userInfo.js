@@ -15,7 +15,7 @@ async function insertUserInformation(url, data) {
         const jsonResponse = await response.json();
 
         const profileContainer = jsonResponse;
-        console.log(profileContainer);
+        // console.log(profileContainer);
         userInformation.innerHTML =  `<li><p>Name: ${profileContainer.name}</p></li>
                                         <li><p>Email: ${profileContainer.email}</p><li>
                                         <p>Lives: Stavanger, Norway</p></li></li>`;
@@ -39,7 +39,7 @@ async function insertUserAvatar(url, data) {
         const jsonResponse = await response.json();
 
         const profileContainer = jsonResponse;
-        console.log(profileContainer);
+        // console.log(profileContainer);
         userAvatar.innerHTML =  `<div class="space-y-4 h-full w-full border bg-mainBlue">
                                     <div class="flex m-4">
                                         <img src="${jsonResponse.avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
@@ -56,5 +56,5 @@ async function insertUserAvatar(url, data) {
     }    
 }
 
-insertUserAvatar(`${url}/api/v1/social/profiles/jowander`, postBody)
+insertUserAvatar(`${url}/api/v1/social/profiles/jowander`, postBody);
 insertUserInformation(`${url}/api/v1/social/profiles/jowander`, postBody);
