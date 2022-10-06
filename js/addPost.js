@@ -1,5 +1,6 @@
 const title = document.querySelector(".postTitle");
 const body = document.querySelector(".postContent");
+const token = localStorage.getItem("accessToken");
 
 async function addPost(event) {
   event.preventDefault();
