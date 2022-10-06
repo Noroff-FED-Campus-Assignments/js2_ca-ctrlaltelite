@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,js}"],
+  content: ["./*.html",
+            "./js/*.js",
+          "./js/feedPosts.js"],
   theme: {
     screens: {
       sm: "480px",
@@ -17,6 +19,7 @@ module.exports = {
         filterBlue: "hsl(216, 41%, 39%)",
         mainBlue: "hsl(216, 41%, 39%)",
         mainGray: "#D5D5D6",
+        mainBlack: "#000000",
       },
     },
   },
