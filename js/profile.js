@@ -18,7 +18,6 @@ async function getContent() {
 
   if (response.ok) {
     const json = await response.json();
-    console.log(json);
     return json;
   }
 }
@@ -29,7 +28,7 @@ const { name, avatar, banner, following, posts } = await getContent();
 
 function userInfo() {
   document.querySelector(".profile-banner-container").innerHTML = `
- <img class="h-20 w-full rounded-t-sm" src="${banner}" onerror="this.src = '/img/placeholder-banner.jpeg';">`;
+ <img class="h-20 w-full object-cover rounded-t-sm" src="${banner}" onerror="this.src = '/img/placeholder-banner.jpeg';">`;
   document.querySelector(".profile-img-container").innerHTML = `<img class="w-32 h-32 rounded-full" src="${avatar}" onerror="this.src = '/img/userPlacegolder.png';">`;
   document.querySelector(".profile-name-container").innerHTML = `<h2 class="text-fontWhite text-lg mt-4">${name}</h2>`;
   document.querySelector(".user-info-name").innerHTML = `${name}`;
