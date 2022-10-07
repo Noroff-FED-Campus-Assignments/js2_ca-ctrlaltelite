@@ -1,6 +1,6 @@
 import { authHeader } from "./components/authHeader.mjs";
 
-const token = localStorage.getItem("accessToken");
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMwLCJuYW1lIjoic2lyaG95IiwiZW1haWwiOiJzaXJob3k1NjQ1MEBzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2NjUxMzkwODJ9.XdnKj0GL6ywTBDdjRK3JMelo--kSBC-37pmcLhZYiVA";
 
 async function getUserProfiles() {
   try {
