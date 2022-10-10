@@ -1,13 +1,11 @@
 import { authHeader } from "./components/authHeader.mjs";
+import { createPosts } from "./components/createPosts.mjs";
+import { userInfo } from "./components/profileInfo.mjs";
 
 const token = localStorage.getItem("accessToken");
 const baseURL = "https://nf-api.onrender.com/api/v1/social/profiles/";
 const user = localStorage.getItem("userName");
 const parameters = `?_followers=true&_following=true&_posts=true`;
-
-// Kaller apiet med et endepunkt som gir meg informasjon
-// om brukeren som er logget inn.
-// Brukerinfo, postene til brukeren, og følgere.
 
 async function getContent() {
   const url = `${baseURL}${user}${parameters}`;
@@ -18,23 +16,20 @@ async function getContent() {
 
   if (response.ok) {
     const json = await response.json();
+    console.log(json);
     return json;
   }
 }
 
 const { name, avatar, banner, following, posts } = await getContent();
 
-// Populerer siden med brukerinfo fra innlogget bruker
+// Bruker funksjon fra userInfo.mjs for å populere siden med brukerinfo.
+const profileBannerContainer = document.querySelector(".profile-banner-container");
+const profileImgContainer = document.querySelector(".profile-img-container");
+const profileNameContainer = document.querySelector(".profile-name-container");
+const userInfoName = document.querySelector(".user-info-name");
 
-function userInfo() {
-  document.querySelector(".profile-banner-container").innerHTML = `
- <img class="h-20 w-full object-cover rounded-t-sm" src="${banner}" onerror="this.src = '/img/placeholder-banner.jpeg';">`;
-  document.querySelector(".profile-img-container").innerHTML = `<img class="w-32 h-32 rounded-full" src="${avatar}" onerror="this.src = '/img/userPlacegolder.png';">`;
-  document.querySelector(".profile-name-container").innerHTML = `<h2 class="text-fontWhite text-lg mt-4 font-headers">${name}</h2>`;
-  document.querySelector(".user-info-name").innerHTML = `${name}`;
-}
-
-userInfo();
+userInfo(profileBannerContainer, profileImgContainer, profileNameContainer, userInfoName, banner, avatar, name);
 
 // Populerer siden med info om followers.
 
@@ -53,17 +48,6 @@ function listOfFriends() {
 
 listOfFriends();
 
-// Populerer siden med brukerens poster. Det går an at brukeren har
-// tomme poster, eller poster med "string", så jeg filtrerer bort disse
-
-// const mapped = posts.map((item) => {
-//   const container = item.title;
-
-//   return container;
-// });
-
-// console.log(mapped);
-
 function addPosts() {
   const filteredPosts = posts.filter((post) => {
     if (post.title === "string" || post.body === "string" || !post.title || !post.body) {
@@ -74,27 +58,9 @@ function addPosts() {
 
   for (let i = 0; i < filteredPosts.length; i++) {
     const userPosts = filteredPosts[i];
-    document.querySelector(".user-posts").innerHTML += `
-    <div class="userPost flex flex-col border mb-5 rounded-sm p-2">
-    <div class="flex">
-        <img src="${avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
-        <p class="ml-2">${user}</p>
-    </div>
-    
-    <div class="mb-4 mt-3">
-        <h2 class="">${userPosts.title}<h2>
-        <img src="${userPosts.media}">
-        <p>${userPosts.body}</p>
-    </div>
-    <div>
-        <p class="mb-4">Reactions</p>
-        <div class="flex w-full ">
-            <input class="border rounded-sm w-full p-1 text-sm" placeholder="Write something" type="text">
-            <button class="bg-mainBlue rounded-sm w-1/4 text-white">Comment</button>
-        </div>
-</div>
-    
-    `;
+    const container = document.querySelector(".user-posts");
+
+    createPosts(container, userPosts, avatar, name);
   }
 }
 
