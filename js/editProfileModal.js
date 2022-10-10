@@ -13,8 +13,10 @@ profileImgContainer.addEventListener("mouseout", () => {
 
 editMediaBtn.addEventListener("click", () => {
   modal.classList.remove("hidden");
+  document.querySelector("body").style.overflow = "hidden";
 });
 
 exitBtn.addEventListener("click", () => {
   modal.classList.add("hidden");
+  document.querySelector("body").style.overflow = "visible";
 });
