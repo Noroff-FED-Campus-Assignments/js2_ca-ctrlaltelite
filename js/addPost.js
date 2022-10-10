@@ -1,6 +1,9 @@
+import { getLocalStorage } from "./components/getLocalStorage.mjs";
+
+const { accessToken } = getLocalStorage();
+
 const title = document.querySelector(".postTitle");
 const body = document.querySelector(".postContent");
-const token = localStorage.getItem("accessToken");
 
 async function addPost(event) {
   event.preventDefault();
@@ -16,7 +19,7 @@ async function addPost(event) {
         body: `${body.value}`,
       }),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         "Content-type": "application/json; charset=UTF-8",
       },
     });
@@ -25,6 +28,7 @@ async function addPost(event) {
     body.value = "";
     requiredTitle.classList.add("hidden");
     requiredBody.classList.add("hidden");
+    location.reload();
   } else {
     requiredTitle.classList.remove("hidden");
     requiredBody.classList.remove("hidden");
