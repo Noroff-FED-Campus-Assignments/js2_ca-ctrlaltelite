@@ -23,7 +23,7 @@ async function getContent() {
 
 const { name, avatar, banner, following, posts } = await getContent();
 
-// Populerer siden med brukerinfo fra innlogget bruker
+// Bruker funksjon fra userInfo.mjs for å populere siden med brukerinfo.
 const profileBannerContainer = document.querySelector(".profile-banner-container");
 const profileImgContainer = document.querySelector(".profile-img-container");
 const profileNameContainer = document.querySelector(".profile-name-container");
