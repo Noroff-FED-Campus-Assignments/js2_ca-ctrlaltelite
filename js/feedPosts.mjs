@@ -1,8 +1,11 @@
 "use strict";
+import {displayPostForm} from "./specificPostModal.mjs";
+
 const url = "https://nf-api.onrender.com";
 
 const feedContainer = document.querySelector("#post-section");
 const suggestionFeed = document.querySelector("#suggestions-post");
+const modalForm = document.querySelector(".modalContainer");
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -32,12 +35,12 @@ async function getFeedPosts(url, data) {
 
     for (let i = 0; i < jsonResponse.length; i++) {
       // console.log(jsonResponse[i].body);
-      if (i === 3) {
-        break;
-      }
-      const postInformation = jsonResponse[i];
 
-      feedContainer.innerHTML += `<div class="space-y-4 mb-8 w-full border border-mainBlue bg">
+      const postInformation = jsonResponse[i];
+      //console.log(postInformation);
+      //console.log(event.target.id);
+
+      feedContainer.innerHTML += `<div class="thisPost space-y-4 mb-8 w-full border border-mainBlue">
             <div class="flex m-4">
                 <img
                     src="${postInformation.author.avatar}"
@@ -47,26 +50,53 @@ async function getFeedPosts(url, data) {
                 />
                 <h3 class="m-4 text-center">${postInformation.author.name}</h3>
             </div>
-                <div class="mx-4"">${postInformation.title}
-                    <img src="${postInformation.media} onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full"/>
-                    <p>${postInformation.body}</p>
-                    <hr class="mx-4">
-                </div>
-            <div>
-                <p class="mx-4">150K</p>
+            <div class="mx-4"">${postInformation.title}
+                <img 
+                src="${postInformation.media}"
+                class="h-50"
+                onerror="this.src = '/img/userPlacegolder.png';" />
+                <p>${postInformation.body}</p>
+                <hr class="mx-4">
             </div>
-            <div class="mx-4 py-5 hidden">
+            <div>
+              <p id="${postInformation.id}" class="mx-4">Comments: ${postInformation._count.comment}</p>
+              <p class="mx-4">React: ${postInformation._count.react}</p>
+            </div>
+            <div class="mx-4 py-5">
                 <input class="w-3/4 h-8 border border-mainBlue placeholder="Write something" type="text">
                 <button class="bg-mainBlue w-1/4 text-white">Comment</button>
+                <button id="${postInformation.id}" class="bg-mainGray w-1/4 closeModal openModal">Edit</button>
             </div>
         </div>`;
     }
+
   } catch (error) {
     console.log(error);
+  } finally {
+    const modalOpenBtn = document.querySelectorAll(".openModal");
+    //console.log(modalOpenBtn);
+    for(let i = 0; i < modalOpenBtn.length; i++) {
+        modalOpenBtn[i].addEventListener("click", () => {
+        const postId = event.target.id;
+        console.log(postId);
+        if (modalForm.classList.contains("modalContainer")) {
+          displayPostForm(`https://nf-api.onrender.com/api/v1/social/posts/${postId}?_author=true`);
+          console.log(modalForm);
+          modalForm.classList.remove("hidden");
+          modalForm.classList.add("block");
+          } else {
+            console.log(event.target);
+            modalForm.classList.remove("block")
+            modalForm.classList.add("hidden");
+        }
+            
+      });
+    }
+    // getComments(`https://nf-api.onrender.com/api/v1/social/posts/${postId}/comment?_author=true`);
   }
 }
 
-async function getSugesstionFeed(url, data) {
+async function getSuggestionFeed(url, data) {
   try {
     const postData = {
       method: "POST",
@@ -81,7 +111,7 @@ async function getSugesstionFeed(url, data) {
     // console.log(jsonResponse);
 
     for (let i = 0; i < jsonResponse.length; i++) {
-      // console.log(jsonResponse[i].body);
+      //console.log(jsonResponse[i]._count.comments);
       if (i === 3) {
         break;
       }
@@ -112,6 +142,28 @@ async function getSugesstionFeed(url, data) {
     }
   } catch (error) {
     console.log(error);
+  } 
+}
+
+async function getComments(url, data) {
+  try {
+    const postData = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(url, headers);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+
+    for (let i = 0; i < jsonResponse.length; i++) {
+      // console.log(jsonResponse[i].title);
+    }
+
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -128,5 +180,7 @@ function sum(a, b) {
 
 sum(2 + 2);
 
-getSugesstionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
+//getComments(`${url}/api/v1/social/posts/?_author=true`, postBody)
+getSuggestionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
 getFeedPosts(`${url}/api/v1/social/posts/?_author=true`, postBody);
+

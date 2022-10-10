@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="/js/menuToggle.js" defer></script>
-    <script src="/js/feedPosts.js" defer></script>
+    <script src="/js/feedPosts.mjs" type="module"></script>
     <script src="./js/friendProfile.js" defer></script>
     <script src="./js/userInfo.js" defer></script>
-    <script src="./js/updatePost.js" defer></script>
+    <script src="./js/specificPostModal.mjs" type="module"></script>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
   <body class="h-full">
+
+
+
     <nav class="flex md:mb-28">
       <div class="upper-navbar flex justify-between fixed top-0 bg-mainBlue w-full h-12 md:h-14">
         <section class="upper-navbar-left self-center w-full">
@@ -106,6 +109,12 @@
       </div> 
     </nav>
 
+    <div class="flex modalContainer bg-mainBlue absolute bg-opacity-50 inset-0 hidden">
+ 
+ 
+
+    </div>
+
     <main class="grid grid-cols-1 mt-16 md:grid-cols-4">
       <section class="flex flex-col mx-auto col-span-1 order-2 md:order-1" id="left-section">
         <div class="flex flex-col md-32 space-y-4">
@@ -192,8 +201,7 @@
         <div id="user-avatar" class=" container flex flex-col col-span-2 items-center mb-8 mx-auto space-y-0 md:px-6 md:flex-row md:space-y-0">
 
         </div>
-        <div id="post-section" class="modalOpen container flex-col col-span-1 items-center mx-auto space-y-0 md:col-span-2 md:px-6 md:flex-row md:space-y-0">
-          
+        <div id="post-section" class="container flex-col col-span-1 items-center mx-auto space-y-0 md:col-span-2 md:px-6 md:flex-row md:space-y-0">
         </div>
       </section>
       <section class="flex-col col-span-1 mx-8 order-3 hidden md:block" id="right-section">

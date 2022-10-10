@@ -40,7 +40,6 @@ async function insertUserAvatar(url, data) {
     const profileContainer = jsonResponse;
     // console.log(profileContainer);
     userAvatar.innerHTML = `<div class="space-y-4 h-full w-full border bg-mainBlue">
- icons
                               <div class="flex m-4">
                                 <img src="${jsonResponse.avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
                                 <input class="w-3/4 h-8 mx-auto self-center border border-mainBlue" placeholder="Write something" type="text">
@@ -56,8 +55,8 @@ async function insertUserAvatar(url, data) {
                                 </div>
                                 <button class="bg-mainGray w-1/4 h-8 place-self-end">Comment</button>
                               </div>
-                              </div>
-                              `;
+                            </div>
+                            `;
 
 
     userAvatarNav.innerHTML = `<div class="flex items-center ml-4 mr-4">

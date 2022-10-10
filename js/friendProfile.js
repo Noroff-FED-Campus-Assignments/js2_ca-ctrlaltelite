@@ -1,20 +1,20 @@
 "use strict"
-// const url = "https://nf-api.onrender.com";
+const url = "https://nf-api.onrender.com";
 const profileFriendsContainer = document.querySelector("#profile-picture");
 
 
-// const accessToken = localStorage.getItem("accessToken");
-// const headers = {
-//     headers: {
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-// };
+const accessToken = localStorage.getItem("accessToken");
+const headers = {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+};
 
 
-// const postBody = {
-//     "title": "",
-//     "body": ""
-// }
+const postBody = {
+    "title": "",
+    "body": ""
+}
 
 async function insertProfilePicture(url, data) {
     try {
