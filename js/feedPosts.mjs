@@ -1,5 +1,5 @@
 "use strict";
-import {displayPostForm} from "./specificPostModal.mjs";
+
 
 const url = "https://nf-api.onrender.com";
 
@@ -37,7 +37,7 @@ async function getFeedPosts(url, data) {
       // console.log(jsonResponse[i].body);
 
       const postInformation = jsonResponse[i];
-      //console.log(postInformation);
+      // console.log(postInformation);
       //console.log(event.target.id);
 
       feedContainer.innerHTML += `<div class="thisPost space-y-4 mb-8 w-full border border-mainBlue">
@@ -65,34 +65,13 @@ async function getFeedPosts(url, data) {
             <div class="mx-4 py-5">
                 <input class="w-3/4 h-8 border border-mainBlue placeholder="Write something" type="text">
                 <button class="bg-mainBlue w-1/4 text-white">Comment</button>
-                <button id="${postInformation.id}" class="bg-mainGray w-1/4 closeModal openModal">Edit</button>
+                <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray w-1/4 closeModal openModal">Edit</a>
             </div>
         </div>`;
     }
 
   } catch (error) {
     console.log(error);
-  } finally {
-    const modalOpenBtn = document.querySelectorAll(".openModal");
-    //console.log(modalOpenBtn);
-    for(let i = 0; i < modalOpenBtn.length; i++) {
-        modalOpenBtn[i].addEventListener("click", () => {
-        const postId = event.target.id;
-        console.log(postId);
-        if (modalForm.classList.contains("modalContainer")) {
-          displayPostForm(`https://nf-api.onrender.com/api/v1/social/posts/${postId}?_author=true`);
-          console.log(modalForm);
-          modalForm.classList.remove("hidden");
-          modalForm.classList.add("block");
-          } else {
-            console.log(event.target);
-            modalForm.classList.remove("block")
-            modalForm.classList.add("hidden");
-        }
-            
-      });
-    }
-    // getComments(`https://nf-api.onrender.com/api/v1/social/posts/${postId}/comment?_author=true`);
   }
 }
 
@@ -111,7 +90,7 @@ async function getSuggestionFeed(url, data) {
     // console.log(jsonResponse);
 
     for (let i = 0; i < jsonResponse.length; i++) {
-      //console.log(jsonResponse[i]._count.comments);
+      console.log(jsonResponse[i]._count.comments);
       if (i === 3) {
         break;
       }
