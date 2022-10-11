@@ -1,5 +1,3 @@
-import { createPosts } from "./components/createPosts.mjs";
-
 async function addComment(postID) {
   const baseURL = "https://nf-api.onrender.com/api/v1/social/posts/";
   const url = `${baseURL}${postID}/comment`;
