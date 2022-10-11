@@ -24,6 +24,7 @@ async function getUserProfiles() {
 getUserProfiles();
 
 const profileFriendsContainer = document.querySelector(".friends-container");
+const feedFriendsContainer = document.querySelector(".feed-friends-container");
 
 function listOfFriendsHTML(user, container, img) {
   container.innerHTML += `
@@ -33,3 +34,5 @@ function listOfFriendsHTML(user, container, img) {
   </div>
   `;
 }
+
+listOfFriendsHTML;

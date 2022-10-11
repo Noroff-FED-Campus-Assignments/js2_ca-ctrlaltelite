@@ -25,6 +25,7 @@ async function addPost(event) {
     body.value = "";
     requiredTitle.classList.add("hidden");
     requiredBody.classList.add("hidden");
+    location.reload();
   } else {
     requiredTitle.classList.remove("hidden");
     requiredBody.classList.remove("hidden");
