@@ -13,8 +13,8 @@ export function createPosts(container, post, userAvatar, userName) {
     </div>
     <div>
         <p class="mb-4">Reactions</p>
-
-</div>
+        <a class="bg-mainBlue text-fontWhite" href="./../../specificPost.html?id=${post.id}">Veiw post</a>
+    </div>
     
     `);
 
