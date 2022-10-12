@@ -1,9 +1,13 @@
 "use strict"
+
+import { deletePost } from "./delete.mjs";
+
+
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
-const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}?_author=true`;
+const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 console.log(specificUrl);
 
 const specificPost = document.querySelector(".specificPost");
@@ -45,12 +49,22 @@ export async function displayPostForm(url) {
                                             src="${jsonResponse.media}" />
                                             <p>${jsonResponse.body}</p>
                                             <hr class="mx-4">
+                                        </div>
+                                        <div>
+                                            <button class="bg-mainGray updateBtn">Update</button>
+                                            <button class="bg-red-500 deleteBtn">Delete</button>
                                         </div>`;
     } catch (error) {
         console.log(error);
+    } finally {
+        const deleteBtn = document.querySelector(".deleteBtn");
+        const updateBtn = document.querySelector(".updateBtn");
+
+        deleteBtn.addEventListener("click", () => {
+            deletePost(`${specificUrl}`);
+        });
     }
 }
 
-
-displayPostForm(`${specificUrl}`);
+displayPostForm(`${specificUrl}?_author=true`);
 
