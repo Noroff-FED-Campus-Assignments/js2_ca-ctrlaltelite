@@ -1,17 +1,22 @@
-import { authHeader } from "./components/authHeader.mjs";
 import { createPosts } from "./components/createPosts.mjs";
 import { userInfo } from "./components/profileInfo.mjs";
+import { getLocalStorage } from "./components/getLocalStorage.mjs";
+import { listOfFriends } from "./components/friendList.mjs";
 
-const token = localStorage.getItem("accessToken");
 const baseURL = "https://nf-api.onrender.com/api/v1/social/profiles/";
-const user = localStorage.getItem("userName");
 const parameters = `?_followers=true&_following=true&_posts=true`;
 
-async function getContent() {
-  const url = `${baseURL}${user}${parameters}`;
+const { accessToken, userName } = getLocalStorage();
 
-  const response = await fetch(url, authHeader(token), {
+async function getContent() {
+  const url = `${baseURL}${userName}${parameters}`;
+
+  const response = await fetch(url, {
     method: "GET",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
   });
 
   if (response.ok) {
@@ -32,21 +37,8 @@ const userInfoName = document.querySelector(".user-info-name");
 userInfo(profileBannerContainer, profileImgContainer, profileNameContainer, userInfoName, banner, avatar, name);
 
 // Populerer siden med info om followers.
-
-function listOfFriends() {
-  for (let i = 0; i < following.length; i++) {
-    if (i <= 3) {
-      document.querySelector(".user-followers-container").innerHTML += `
-       <div class="flex items-center mb-2 mt-2 ml-2">
-       <img src="${following[i].avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
-       <p class="ml-2 text-sm">${following[i].name}</p>
-       </div>
-       `;
-    }
-  }
-}
-
-listOfFriends();
+const followersContainer = document.querySelector(".user-followers-container");
+listOfFriends(following, followersContainer);
 
 function addPosts() {
   const filteredPosts = posts.filter((post) => {

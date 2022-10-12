@@ -1,8 +1,9 @@
+import { getLocalStorage } from "./components/getLocalStorage.mjs";
+
 async function updateMedia(event) {
   event.preventDefault();
 
-  const user = localStorage.getItem("userName");
-  const token = localStorage.getItem("accessToken");
+  const { accessToken } = getLocalStorage();
 
   const avatarInput = document.querySelector(".avatar-url");
   const bannerInput = document.querySelector(".banner-url");
@@ -14,7 +15,7 @@ async function updateMedia(event) {
       avatar: `${avatarInput.value}`,
     }),
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
   });
@@ -25,6 +26,3 @@ async function updateMedia(event) {
 
 const form = document.querySelector("#profile-media-form");
 form.addEventListener("submit", updateMedia);
-
-// // if valuen i ett av feltene er større enn 1, aktiver save, fiks kryss i hjørnet
-// // trykke utenfor modalen cancel
