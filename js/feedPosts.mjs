@@ -28,16 +28,12 @@ async function getFeedPosts(url, data) {
       body: JSON.stringify(data),
     };
     const response = await fetch(url, headers);
-    // console.log(response);
+
     const jsonResponse = await response.json();
-    // console.log(jsonResponse);
 
     for (let i = 0; i < jsonResponse.length; i++) {
-      // console.log(jsonResponse[i].body);
-
       const postInformation = jsonResponse[i];
-      // console.log(postInformation);
-      //console.log(event.target.id);
+
       if (i <= 9) {
         feedContainer.innerHTML += `
         <div class="thisPost mb-6 w-full border border-mainGray rounded-sm">
@@ -85,12 +81,10 @@ async function getSuggestionFeed(url, data) {
       body: JSON.stringify(data),
     };
     const response = await fetch(url, headers);
-    //console.log(response);
+
     const jsonResponse = await response.json();
-    // console.log(jsonResponse);
 
     for (let i = 0; i < jsonResponse.length; i++) {
-      console.log(jsonResponse[i]._count.comments);
       if (i === 3) {
         break;
       }
@@ -154,4 +148,4 @@ sum(2 + 2);
 
 //getComments(`${url}/api/v1/social/posts/?_author=true`, postBody)
 getSuggestionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
-getFeedPosts(`${url}/api/v1/social/posts/?_author=true`, postBody);
+getFeedPosts(`${url}/api/v1/social/posts/?_author=true&_reactions=true&_comments=true`, postBody);

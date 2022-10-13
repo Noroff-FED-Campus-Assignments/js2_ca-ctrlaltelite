@@ -8,9 +8,10 @@
     <script src="/js/menuToggle.js" defer></script>
     <script src="/js/feedPosts.mjs" type="module"></script>
     <script src="./js/friendProfile.js" defer></script>
-    <script src="./js/userInfo.js" defer></script>
-    <script src="./js/specificPost.mjs" type="module"></script>
-    <script src="/js/addPost.js" defer></script>
+    <!-- <script src="./js/userInfo.js" defer></script> -->
+    <!-- <script src="./js/specificPost.mjs" type="module"></script> -->
+    <script src="/js/addPost.js" defer type="module"></script>
+    <script src="/js/filterFeed.js" defer type="module"></script>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
   <body class="h-full">
@@ -188,8 +189,8 @@
         </div>
       </section>
       <section class="flex flex-col w-3/4 m-auto col-span-2 mb-8 order-3 md:order-2" id="middle-section">
-        <div class="add-post w-full flex flex-col col-span-2 items-center mb-8 mx-auto space-y-0 md:flex-row md:space-y-0">
-          <div class="space-y-4 h-full w-11/12 m-auto  rounded-sm bg-mainBlue">
+        <div class="add-post w-full flex flex-col col-span-2  mb-8 mx-auto md:flex-row ">
+          <div class="space-y-4 h-full w-full m-auto  rounded-sm bg-mainBlue">
             <div class="flex flex-col m-4">
               <p class="text-fontWhite mb-5 font-headers">Write a post</p>
               <div class="flex w-full">
@@ -207,7 +208,14 @@
             </div>
           </div>
         </div>
-        <div id="post-section" class="container flex-col col-span-1 items-center mx-auto md:col-span-2 md:px-6 md:flex-row">
+        <div class="filter w-full mb-2 flex items-center">
+          <p class="text-mainGray text-xs">Filter by:</p> 
+          <button class="feed text-xs p-1 rounded-sm text-mainGray border ml-3">Feed</button>
+          <button class="popular text-xs p-1 rounded-sm text-mainBlue border ml-3">Popular</button>
+          
+        </div>
+
+        <div id="post-section" class="container flex-col col-span-1 items-center mx-auto md:col-span-2 md:flex-row">
         </div>
       </section>
       <section class="flex-col col-span-1 mx-8 order-3 hidden md:block w-3/4" id="right-section">
