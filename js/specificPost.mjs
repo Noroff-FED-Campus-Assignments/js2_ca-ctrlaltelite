@@ -1,8 +1,11 @@
-"use strict"
+"use strict";
+import { deletePost } from "./delete.mjs";
 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
+
+const userName = localStorage.getItem("userName");
 
 const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 console.log(id);
@@ -12,20 +15,26 @@ const specificPost = document.querySelector(".specificPost");
 const accessToken = localStorage.getItem("accessToken");
 
 export async function displayPostForm(url) {
-    try {
-        const getData = {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
-            },
-          };
+  try {
+    const getData = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
 
-        const response = await fetch(url, getData);
-        const jsonResponse = await response.json();
-        // console.log(jsonResponse);
+    const response = await fetch(url, getData);
+    const jsonResponse = await response.json();
+    // console.log(jsonResponse);
 
-        specificPost.innerHTML = `<div class="flex m-4">
+    if (jsonResponse.author.name === userName) {
+      const formContainer = document.querySelector(".editAndDelete");
+      formContainer.classList.remove("hidden");
+      console.log("Samme");
+    }
+
+    specificPost.innerHTML = `<div class="flex m-4">
                                         <img
                                             src="${jsonResponse.author.avatar}"
                                             class="w-8 h-8 rounded-full"
@@ -42,20 +51,17 @@ export async function displayPostForm(url) {
                                             <hr class="mx-4">
                                         </div>
                                        
-                                        <div>
-                                            <button class="bg-red-500 deleteBtn">Delete</button>
-                                        </div>`;
-    } catch (error) {
-        console.log(error);
-    } finally {
-        const deleteBtn = document.querySelector(".deleteBtn");
-        const updatePost = document.querySelector(".updatePost");
+                                        `;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    const deleteBtn = document.querySelector(".deleteBtn");
+    const updatePost = document.querySelector(".updatePost");
 
-        deleteBtn.addEventListener("click", () => {
-            deletePost(`${specificUrl}`);
-        });
-    }
+    deleteBtn.addEventListener("click", () => {
+      deletePost(`${specificUrl}`);
+    });
+  }
 }
 
 displayPostForm(`${specificUrl}?_author=true`);
-

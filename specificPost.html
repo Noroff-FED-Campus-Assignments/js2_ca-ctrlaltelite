@@ -9,6 +9,7 @@
     <script src="./js/delete.mjs" type="module"></script>
     <script src="./js/specificPost.mjs" type="module"></script>
     <script src="./js/updatePost.mjs" type="module"></script>
+    <script src="./js/addComment.js" defer></script>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
   <body class="h-full">
@@ -108,11 +109,14 @@
       </div> 
     </nav>
 
-    <div class="thisPost space-y-4 h-100 w-100 mb-8 border bg-fontWhite">
+    <div class="thisPost space-y-4 h-100 w-100 mb-8  bg-fontWhite">
         <div class="specificPost">
 
         </div>
-        <div class="block">
+        <div class="hidden editAndDelete">
+          <div>
+            <button class="bg-red-500 deleteBtn">Delete</button>
+        </div>
           <div class="displayForm">
               <form class="updateForm">
                   <label for="">Title</label>
@@ -123,7 +127,13 @@
               </form>
           </div>
       </div>
+      <div class="comment-container">
+        <form class="commentForm" id="commentForm">
+          <input type="text" id="comment" placeholder="Write comment here.." class="text-sm border rounded-sm p-1">
+          <button type="submit" class="commentBtn bg-mainBlue text-fontWhite text-sm p-1">Add comment</button>
+        </form>
+      </div>
 
-    </div>`;
+    </div>
   </body>
 </html>
