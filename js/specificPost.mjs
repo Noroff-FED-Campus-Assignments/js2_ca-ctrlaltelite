@@ -26,12 +26,13 @@ export async function displayPostForm(url) {
 
     const response = await fetch(url, getData);
     const jsonResponse = await response.json();
-    // console.log(jsonResponse);
+    console.log(jsonResponse);
+
+    document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
 
     if (jsonResponse.author.name === userName) {
       const formContainer = document.querySelector(".editAndDelete");
       formContainer.classList.remove("hidden");
-      console.log("Samme");
     }
 
     specificPost.innerHTML = `<div class="flex m-4">
