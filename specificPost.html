@@ -8,6 +8,7 @@
     <script src="/js/menuToggle.js" defer></script>
     <script src="./js/delete.mjs" type="module"></script>
     <script src="./js/specificPost.mjs" type="module"></script>
+    <script src="./js/updatePost.mjs" type="module"></script>
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
   <body class="h-full">
@@ -111,6 +112,17 @@
         <div class="specificPost">
 
         </div>
+        <div class="block">
+          <div class="displayForm">
+              <form class="updateForm">
+                  <label for="">Title</label>
+                  <input class="required-title" type="text">
+                  <label for="">Body</label>
+                  <input class="required-body" type="text">
+                  <button class="bg-mainGray updatePost" type="submit">Edit</button>
+              </form>
+          </div>
+      </div>
 
     </div>`;
   </body>

@@ -1,28 +1,19 @@
 "use strict"
 
-import { deletePost } from "./delete.mjs";
-
-
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
 const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
-console.log(specificUrl);
+console.log(id);
 
 const specificPost = document.querySelector(".specificPost");
 
 const accessToken = localStorage.getItem("accessToken");
-const putBody = {
-    title: "",
-    body: "",
-    tags: [""],
-    media: ""
-};
 
 export async function displayPostForm(url) {
     try {
-        const putData = {
+        const getData = {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -30,9 +21,9 @@ export async function displayPostForm(url) {
             },
           };
 
-        const response = await fetch(url, putData);
+        const response = await fetch(url, getData);
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
+        // console.log(jsonResponse);
 
         specificPost.innerHTML = `<div class="flex m-4">
                                         <img
@@ -50,15 +41,15 @@ export async function displayPostForm(url) {
                                             <p>${jsonResponse.body}</p>
                                             <hr class="mx-4">
                                         </div>
+                                       
                                         <div>
-                                            <button class="bg-mainGray updateBtn">Update</button>
                                             <button class="bg-red-500 deleteBtn">Delete</button>
                                         </div>`;
     } catch (error) {
         console.log(error);
     } finally {
         const deleteBtn = document.querySelector(".deleteBtn");
-        const updateBtn = document.querySelector(".updateBtn");
+        const updatePost = document.querySelector(".updatePost");
 
         deleteBtn.addEventListener("click", () => {
             deletePost(`${specificUrl}`);
