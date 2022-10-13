@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html", "./js/*.js", "./js/feedPosts.js"],
+  content: ["./*.html", "./js/*.js", "./js/components/*.js", "./js/feedPosts.js"],
   theme: {
     screens: {
       sm: "480px",
@@ -21,12 +21,8 @@ module.exports = {
         seeThroughBlue: "rgba(59, 92, 142, 69)",
       },
       fontFamily: {
-        bodyText: [
-          "Roboto"
-        ],
-        headers: [
-          "Cairo"
-        ]
+        bodyText: ["Roboto"],
+        headers: ["Cairo"],
       },
     },
   },

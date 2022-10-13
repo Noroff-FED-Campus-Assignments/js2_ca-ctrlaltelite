@@ -1,5 +1,5 @@
 import { createPosts } from "./components/createPosts.mjs";
-import { userInfo } from "./components/profileInfo.mjs";
+
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 import { listOfFriends } from "./components/friendList.mjs";
 
@@ -34,7 +34,17 @@ const profileImgContainer = document.querySelector(".profile-img-container");
 const profileNameContainer = document.querySelector(".profile-name-container");
 const userInfoName = document.querySelector(".user-info-name");
 
-userInfo(profileBannerContainer, profileImgContainer, profileNameContainer, userInfoName, banner, avatar, name);
+function userInfo() {
+  // Adds user info to the user-banner/hero on top of page
+  profileBannerContainer.innerHTML = `<img class="h-20 w-full object-cover rounded-t-sm" src="${banner}" onerror="this.src = '/img/placeholder-banner.jpeg';">`;
+  profileImgContainer.innerHTML = `<img class="w-32 h-32 rounded-full" src="${avatar}" onerror="this.src = '/img/userPlacegolder.png';">`;
+  profileNameContainer.innerHTML = `<h2 class="text-fontWhite text-lg mt-4 font-headers">${name}</h2>`;
+
+  //Adds user info to the user info box
+  userInfoName.innerHTML = `${name}`;
+}
+
+userInfo();
 
 // Populerer siden med info om followers.
 const followersContainer = document.querySelector(".user-followers-container");

@@ -33,6 +33,7 @@ async function getFeedPosts(url, data) {
 
     for (let i = 0; i < jsonResponse.length; i++) {
       const postInformation = jsonResponse[i];
+      console.log(jsonResponse[i]._count.reactions);
 
       if (i <= 9) {
         feedContainer.innerHTML += `
@@ -60,7 +61,8 @@ async function getFeedPosts(url, data) {
               <p class="mx-4">Reactions </p>
             </div>
             <div class="mx-4 py-5">
-
+                <button>LIKE</button> 
+                <p>${postInformation._count.reactions}</p>
                 <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray p-2 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
             </div>
         </div>`;
