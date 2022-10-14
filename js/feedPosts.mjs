@@ -33,19 +33,24 @@ async function getFeedPosts(url, data) {
 
     for (let i = 0; i < jsonResponse.length; i++) {
       const postInformation = jsonResponse[i];
-      console.log(jsonResponse[i]._count.reactions);
+      // console.log(jsonResponse[i]._count.reactions);
 
       if (i <= 9) {
         feedContainer.innerHTML += `
         <div class="thisPost mb-6 w-full border border-mainGray rounded-sm">
-            <div class="flex m-4 items-center">
-                <img
-                    src="${postInformation.author.avatar}"
-                    class="w-8 h-8 rounded-full"
-                    alt="Profile picture"
-                    onerror="this.src = '/img/userPlacegolder.png';"
-                />
-                <h3 class="ml-2 text-sm text-center">${postInformation.author.name}</h3>
+            <div class="flex items-center">
+              <div class="flex m-4 items-center">
+                  <img
+                      src="${postInformation.author.avatar}"
+                      class="w-8 h-8 rounded-full"
+                      alt="Profile picture"
+                      onerror="this.src = '/img/userPlacegolder.png';"
+                  />
+                  <h3 class="ml-2 text-sm text-center">${postInformation.author.name}</h3>
+              </div>
+              <div>
+                <button id="followBtn">Follow</button>
+              </div>
             </div>
             <div class="mx-4 text-md">${postInformation.title}
             <div class="image-container mb-5">
@@ -61,8 +66,14 @@ async function getFeedPosts(url, data) {
               <p class="mx-4">Reactions </p>
             </div>
             <div class="mx-4 py-5">
+
+                <button>LIKE</button> 
+                <p>${postInformation._count.reactions}</p>
+                <a href=./../specificPost.html?id=${postInformation.id}&name=${postInformation.author.name} class="bg-mainGray p-2 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+
                 <p class="text-xs mb-2">${postInformation._count.reactions} likes</p>
                 <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+
             </div>
         </div>`;
       }
@@ -84,6 +95,7 @@ async function getSuggestionFeed(url, data) {
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();
+    console.log(jsonResponse)
 
     for (let i = 0; i < jsonResponse.length; i++) {
       if (i === 3) {
@@ -105,7 +117,7 @@ async function getSuggestionFeed(url, data) {
                                             <p>${postInformation.body}</p>
                                
                                         </div>
-                                        <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+                                        <a href=./../specificPost.html?id=${postInformation.id}  class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
                                 </div>`;
     }
   } catch (error) {
@@ -113,26 +125,6 @@ async function getSuggestionFeed(url, data) {
   }
 }
 
-async function getComments(url, data) {
-  try {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    const response = await fetch(url, headers);
-    const jsonResponse = await response.json();
-    console.log(jsonResponse);
-
-    for (let i = 0; i < jsonResponse.length; i++) {
-      // console.log(jsonResponse[i].title);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 /**
  *
@@ -147,6 +139,6 @@ function sum(a, b) {
 
 sum(2 + 2);
 
-//getComments(`${url}/api/v1/social/posts/?_author=true`, postBody)
+
 getSuggestionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
 getFeedPosts(`${url}/api/v1/social/posts/?_author=true&_reactions=true&_comments=true`, postBody);

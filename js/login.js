@@ -16,9 +16,7 @@ async function handleLogin(e){
         "email": userEmail.value,
         "password": password.value
     }
-    console.log(userLogin)
     const response = await logIn(url, userLogin);
-    console.log(response)
     if(response.status === 200){
         window.location.href = ".././feed.html";
     } else {
@@ -29,8 +27,8 @@ async function handleLogin(e){
 
 async function logIn(url) {
     const userLogin = {
-    "email": `jowander.jowander@noroff.no`,
-    "password": `UzI1NiIsInR5cCI`
+    "email": `${userEmail.value}`,
+    "password": `${password.value}`
 };
     try {
         const postData = {
@@ -42,21 +40,11 @@ async function logIn(url) {
         };
 
         const response = await fetch(url, postData);
-        console.log(response);
         const jsonResponse = await response.json();
-        const userName = jsonResponse.name;;
+        const userName = jsonResponse.name;
         const accessToken = jsonResponse.accessToken;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userName", userName);
-
-        // loginForm.addEventListener("submit", (e) => {
-        //     e.preventDefault();
-        //     if (response.status === 200) {
-        //         window.location.href = ".././feed.html";
-        //     } else {
-        //         console.log(`Wrong username or password`);
-        //     }
-        // })
         
         return response;
     } catch (error) {
