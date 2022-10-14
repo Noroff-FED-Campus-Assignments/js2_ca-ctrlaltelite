@@ -1,4 +1,5 @@
-"use strict"
+"use strict";
+import { deletePost } from "./delete.mjs";
 
 import { deletePost } from "./delete.mjs";
 import { follow } from "./follow.mjs";
@@ -9,6 +10,8 @@ const params = new URLSearchParams(queryString);
 const userName = params.get("name");
 const id = params.get("id");
 
+const userName = localStorage.getItem("userName");
+
 const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 const followUrl = `https://nf-api.onrender.com/api/v1/social/profiles/${userName}`;
 console.log(id);
@@ -18,6 +21,7 @@ const specificPost = document.querySelector(".specificPost");
 const accessToken = localStorage.getItem("accessToken");
 
 export async function displayPostForm(url) {
+
     try {
         const getData = {
             method: "GET",
@@ -33,6 +37,29 @@ export async function displayPostForm(url) {
 
         specificPost.innerHTML = `<div class="flex m-4">
                                     <div>
+
+  try {
+    const getData = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const response = await fetch(url, getData);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+
+    document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
+
+    if (jsonResponse.author.name === userName) {
+      const formContainer = document.querySelector(".editAndDelete");
+      formContainer.classList.remove("hidden");
+    }
+
+    specificPost.innerHTML = `<div class="flex m-4">
+
                                         <img
                                         src="${jsonResponse.author.avatar}"
                                         class="w-8 h-8 rounded-full"
@@ -40,6 +67,7 @@ export async function displayPostForm(url) {
                                         onerror="this.src = '/img/userPlacegolder.png';"
                                          />
                                         <h3 class="m-4 text-center">${jsonResponse.author.name}</h3>
+
                                     </div>    
                                     <div>
                                         <button class="bg-mainGray p-60 followBtn">Follow</button>
@@ -77,7 +105,28 @@ export async function displayPostForm(url) {
             unfollow(`${followUrl}/unfollow`);
         });
     }
+
+                                        </div>
+                                        <div class="mx-4"">${jsonResponse.title}
+                                            <img
+                                            class="" 
+                                            src="${jsonResponse.media}" />
+                                            <p>${jsonResponse.body}</p>
+                                            <hr class="mx-4">
+                                        </div>
+                                       
+                                        `;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    const deleteBtn = document.querySelector(".deleteBtn");
+    const updatePost = document.querySelector(".updatePost");
+
+    deleteBtn.addEventListener("click", () => {
+      deletePost(`${specificUrl}`);
+    });
+  }
+
 }
 
 displayPostForm(`${specificUrl}?_author=true`);
-

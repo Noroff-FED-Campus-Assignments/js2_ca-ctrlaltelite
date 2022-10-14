@@ -66,9 +66,14 @@ async function getFeedPosts(url, data) {
               <p class="mx-4">Reactions </p>
             </div>
             <div class="mx-4 py-5">
+
                 <button>LIKE</button> 
                 <p>${postInformation._count.reactions}</p>
                 <a href=./../specificPost.html?id=${postInformation.id}&name=${postInformation.author.name} class="bg-mainGray p-2 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+
+                <p class="text-xs mb-2">${postInformation._count.reactions} likes</p>
+                <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+
             </div>
         </div>`;
       }

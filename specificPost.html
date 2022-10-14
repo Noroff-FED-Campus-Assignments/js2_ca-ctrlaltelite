@@ -9,8 +9,13 @@
     <script src="./js/delete.mjs" type="module"></script>
     <script src="./js/specificPost.mjs" type="module"></script>
     <script src="./js/updatePost.mjs" type="module"></script>
+
     <script src="./js/follow.mjs" type="module"></script>
     <script src="./js/unfollow.mjs" type="module"></script>
+
+    <script src="./js/addComment.js" defer></script>
+    <script src="./js/addReaction.js" type="module"></script>
+
     <link rel="stylesheet" href="/dist/output.css" />
   </head>
   <body class="h-full">
@@ -110,11 +115,14 @@
       </div> 
     </nav>
 
-    <div class="thisPost space-y-4 h-100 w-100 mb-8 border bg-fontWhite">
+    <div class="thisPost space-y-4 h-100 w-100 mb-8  bg-fontWhite">
         <div class="specificPost">
 
         </div>
-        <div class="block">
+        <div class="hidden editAndDelete">
+          <div>
+            <button class="bg-red-500 deleteBtn">Delete</button>
+        </div>
           <div class="displayForm">
               <form class="updateForm">
                   <label for="">Title</label>
@@ -124,6 +132,20 @@
                   <button class="bg-mainGray updatePost" type="submit">Edit</button>
               </form>
           </div>
+      </div>
+      <div class="likes-container flex items-center">
+        <button class="likeBtn">
+          <svg class="w-8 h-8 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512">
+            <g id="like_thumbs_love_good" data-name="like, thumbs, love, good"><path d="M27.1133,13.0557A2.9794,2.9794,0,0,0,24.835,12H23.1792a1,1,0,0,0,0,2H24.835a.9855.9855,0,0,1,.9726,1.1465L24.4688,23.18A.9788.9788,0,0,1,23.5,24H17.5933l-1.7071-1.707a1,1,0,0,0-.707-.293h-3V16h1a1,1,0,0,0,.8945-.5527L17.7974,8h.6645a.9569.9569,0,0,1,.9092,1.2607l-1.1406,3.4229a1,1,0,0,0,1.8974.6328l1.1407-3.4228A2.9576,2.9576,0,0,0,18.4619,6H17.1792a1,1,0,0,0-.8945.5527L12.561,14h-.3818V13a1,1,0,0,0-1-1h-6a1,1,0,0,0-1,1V25a1,1,0,0,0,1,1h6a1,1,0,0,0,1-1V24h2.5859l1.7071,1.707a1,1,0,0,0,.707.293H23.5a2.9721,2.9721,0,0,0,2.9414-2.4922L27.78,15.4766A2.9771,2.9771,0,0,0,27.1133,13.0557ZM10.1792,24h-4V14h4Z" /></g>
+          </svg>
+        </button>
+        <div class="likes-count font-headers"></div>
+      </div>
+      <div class="comment-container">
+        <form class="commentForm" id="commentForm">
+          <input type="text" id="comment" placeholder="Write comment here.." class="text-sm border rounded-sm p-1">
+          <button type="submit" class="commentBtn bg-mainBlue text-fontWhite text-sm p-1">Add comment</button>
+        </form>
       </div>
 
     </div>
