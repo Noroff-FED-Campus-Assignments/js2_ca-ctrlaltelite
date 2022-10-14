@@ -1,6 +1,5 @@
 "use strict"
 
-const url = "https://nf-api.onrender.com/api/v1/social/posts/${id}";
 const accessToken = localStorage.getItem("accessToken");
 
 export async function deletePost(url, data) {

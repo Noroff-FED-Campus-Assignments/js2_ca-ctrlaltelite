@@ -2,14 +2,12 @@
 const url = "https://nf-api.onrender.com";
 const profileFriendsContainer = document.querySelector("#profile-picture");
 
-
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
 };
-
 
 const postBody = {
     "title": "",
