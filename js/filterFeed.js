@@ -28,7 +28,8 @@ async function filterByCommentCount() {
   console.log(json);
 
   for (let i = 0; i < json.length; i++) {
-    if (json[i]._count.reactions >= 6) {
+    //setter limit på 2 likes, da det er få poster med mere likes
+    if (json[i]._count.reactions >= 2) {
       console.log(console.log(json[i]));
 
       createPosts(container, json[i], json[i].author.avatar, json[i].author.name);

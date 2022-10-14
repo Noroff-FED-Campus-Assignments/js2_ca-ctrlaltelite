@@ -8,7 +8,7 @@ async function getProfiles() {
   const inputFromSearch = searchBarInput.value;
   const postContainer = document.querySelector("#post-section");
 
-  const response = await fetch("https://nf-api.onrender.com/api/v1/social/profiles?limit=1000git ", {
+  const response = await fetch("https://nf-api.onrender.com/api/v1/social/profiles?limit=1000", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${accessToken}`,
