@@ -6,6 +6,7 @@ import { getBaseURL } from "./components/baseURL.mjs";
 const { accessToken, userName } = getLocalStorage();
 
 async function getContent() {
+
   try {
     const baseURL = getBaseURL();
     const parameters = `?_followers=true&_following=true&_posts=true`;
@@ -26,6 +27,7 @@ async function getContent() {
     }
   } catch (error) {
     console.log(error);
+
   }
 }
 

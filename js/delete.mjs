@@ -19,8 +19,6 @@ export async function deletePost(url, data) {
             window.location.href = "./../profile.html";
         }
 
-        console.log(jsonResponse);
-
     } catch (error) {
         console.log(error);
     }

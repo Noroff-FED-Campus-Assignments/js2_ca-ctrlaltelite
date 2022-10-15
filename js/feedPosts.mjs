@@ -95,7 +95,6 @@ async function getSuggestionFeed(url, data) {
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();
-    console.log(jsonResponse)
 
     for (let i = 0; i < jsonResponse.length; i++) {
       if (i === 3) {

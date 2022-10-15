@@ -5,18 +5,11 @@ const userAvatarNav = document.querySelector("#user-avatar-nav");
 
 async function insertUserInformation(url, data) {
   try {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
     const response = await fetch(url, headers);
     const jsonResponse = await response.json();
 
     const profileContainer = jsonResponse;
-    // console.log(profileContainer);
+
     userInformation.innerHTML = `<li><p>Name: ${profileContainer.name}</p></li>
                                         <li><p>Email: ${profileContainer.email}</p><li>
                                         <p>Lives: Stavanger, Norway</p></li></li>`;
@@ -27,18 +20,11 @@ async function insertUserInformation(url, data) {
 
 async function insertUserAvatar(url, data) {
   try {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
     const response = await fetch(url, headers);
     const jsonResponse = await response.json();
 
     const profileContainer = jsonResponse;
-    // console.log(profileContainer);
+
     userAvatar.innerHTML = `<div class="space-y-4 h-full w-full border bg-mainBlue">
                               <div class="flex m-4">
                                 <img src="${jsonResponse.avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">

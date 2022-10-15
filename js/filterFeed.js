@@ -16,6 +16,7 @@ async function filterByCommentCount() {
   feedBtn.classList.add("text-mainBlue");
 
   container.innerHTML = "";
+
   try {
     const response = await fetch("https://nf-api.onrender.com/api/v1/social/posts?limit=300&comments=true&_author=true", {
       method: "GET",
