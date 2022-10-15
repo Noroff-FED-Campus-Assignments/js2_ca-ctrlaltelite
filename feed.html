@@ -11,7 +11,6 @@
     <script src="/js/feedPosts.mjs" type="module"></script>
     <script src="./js/friendProfile.js" defer></script>
     <script src="./js/userInfo.js" defer></script>
-    <script src="./js/specificPost.mjs" type="module"></script>
     <script src="./js/addPost.js" type="module"></script>
     <script src="./js/filterFeed.js" type="module"></script>
     <script src="./js/search.js" type="module" ></script>
@@ -191,13 +190,15 @@
           </div>
         </div>
       </section>
-      <section class="flex flex-col w-3/4 m-auto col-span-2 mb-8 order-3 md:order-2" id="middle-section">
+      <section class="flex flex-col w-3/4 col-span-2 order-3 md:order-2 justify-self-center" id="middle-section">
         <div class="add-post w-full flex flex-col col-span-2  mb-8 mx-auto md:flex-row ">
-          <div class="space-y-4 h-full w-full m-auto  rounded-sm bg-mainBlue">
+          <div class="h-full w-full m-auto  rounded-sm bg-mainBlue">
             <div class="flex flex-col m-4">
               <p class="text-fontWhite mb-5 font-headers">Write a post</p>
               <div class="flex w-full">
-              <img src="" onerror="this.src = '/img/userPlacegolder.png';" class="profile-img create-post-avatar w-8 h-8 rounded-full " alt="Profile picture">
+                <div class="profile-img-container">
+              
+            </div>
               <div class="flex flex-col w-full ml-3">
                 <input class="postTitle rounded-sm p-1 text-xs" type="text" name="postTitle" id="postTitle" placeholder="Title*">
                 <p class="required-title hidden text-xs text-fontWhite mt-1">Field required</p>

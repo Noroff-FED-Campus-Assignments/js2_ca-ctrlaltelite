@@ -1,5 +1,7 @@
 "use strict";
 
+import { createPosts } from "./components/createPosts.mjs";
+
 const url = "https://nf-api.onrender.com";
 
 const feedContainer = document.querySelector("#post-section");
@@ -20,7 +22,6 @@ const postBody = {
 
 async function getFeedPosts(url, data) {
   try {
-
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();
@@ -30,46 +31,7 @@ async function getFeedPosts(url, data) {
       // console.log(jsonResponse[i]._count.reactions);
 
       if (i <= 9) {
-        feedContainer.innerHTML += `
-        <div class="thisPost mb-6 w-full border border-mainGray rounded-sm">
-            <div class="flex items-center">
-              <div class="flex m-4 items-center">
-                  <img
-                      src="${postInformation.author.avatar}"
-                      class="w-8 h-8 rounded-full"
-                      alt="Profile picture"
-                      onerror="this.src = '/img/userPlacegolder.png';"
-                  />
-                  <h3 class="ml-2 text-sm text-center">${postInformation.author.name}</h3>
-              </div>
-              <div>
-                <button id="followBtn">Follow</button>
-              </div>
-            </div>
-            <div class="mx-4 text-md">${postInformation.title}
-            <div class="image-container mb-5">
-                <img
-                src="${postInformation.media}"
-                class="h-50"
-                 />
-            </div>
-                <p class="">${postInformation.body}</p>
-
-            </div>
-            <div>
-              <p class="mx-4">Reactions </p>
-            </div>
-            <div class="mx-4 py-5">
-
-                <button>LIKE</button> 
-                <p>${postInformation._count.reactions}</p>
-                <a href=./../specificPost.html?id=${postInformation.id}&name=${postInformation.author.name} class="bg-mainGray p-2 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
-
-                <p class="text-xs mb-2">${postInformation._count.reactions} likes</p>
-                <a href=./../specificPost.html?id=${postInformation.id} class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
-
-            </div>
-        </div>`;
+        createPosts(feedContainer, postInformation, postInformation.author.avatar, postInformation.author.name);
       }
     }
   } catch (error) {
@@ -79,7 +41,6 @@ async function getFeedPosts(url, data) {
 
 async function getSuggestionFeed(url) {
   try {
-
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();
@@ -112,7 +73,6 @@ async function getSuggestionFeed(url) {
   }
 }
 
-
 /**
  *
  * @param {number} a
@@ -125,7 +85,6 @@ function sum(a, b) {
 }
 
 sum(2 + 2);
-
 
 getSuggestionFeed(`${url}/api/v1/social/posts/?_author=true`, postBody);
 getFeedPosts(`${url}/api/v1/social/posts/?_author=true&_reactions=true&_comments=true`, postBody);
