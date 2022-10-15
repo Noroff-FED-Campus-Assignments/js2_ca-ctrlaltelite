@@ -1,28 +1,31 @@
 import { createPosts } from "./components/createPosts.mjs";
-
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 import { listOfFriends } from "./components/friendList.mjs";
-
-const baseURL = "https://nf-api.onrender.com/api/v1/social/profiles/";
-const parameters = `?_followers=true&_following=true&_posts=true`;
+import { getBaseURL } from "./components/baseURL.mjs";
 
 const { accessToken, userName } = getLocalStorage();
 
 async function getContent() {
-  const url = `${baseURL}${userName}${parameters}`;
+  try {
+    const baseURL = getBaseURL();
+    const parameters = `?_followers=true&_following=true&_posts=true`;
+    const getSingleProfileURL = `${baseURL}profiles/${userName}${parameters}`;
 
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-  });
+    const response = await fetch(getSingleProfileURL, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-  if (response.ok) {
-    const json = await response.json();
-    console.log(json);
-    return json;
+    if (response.ok) {
+      const json = await response.json();
+      console.log(json);
+      return json;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
