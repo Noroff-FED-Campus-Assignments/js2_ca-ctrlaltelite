@@ -21,7 +21,7 @@ async function updateMedia(event) {
       },
     });
 
-    const json = await response.json();
+
     location.reload();
   } catch (error) {
     console.log(error);

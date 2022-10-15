@@ -4,7 +4,6 @@ const querystring = document.location.search;
 const params = new URLSearchParams(querystring);
 const postID = params.get("id");
 const commentForm = document.querySelector("#commentForm");
-const commentBtn = document.querySelector(".commentBtn");
 
 async function addComment(event) {
   event.preventDefault();

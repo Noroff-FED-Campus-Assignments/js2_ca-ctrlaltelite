@@ -3,7 +3,6 @@ const queryString = window.location.search;
 const queryParams = new URLSearchParams(queryString);
 const userName = queryParams.get("name");
 
-const followUrl = `https://nf-api.onrender.com/api/v1/social/profiles/${userName}`;
 
 const accessToken = localStorage.getItem("accessToken");
 
