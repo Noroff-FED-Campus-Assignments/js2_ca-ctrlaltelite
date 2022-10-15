@@ -17,8 +17,6 @@ async function addLikes() {
 
   const json = await response.json();
 
-  console.log(json);
-
   document.querySelector(".likes-count").innerHTML = json.count;
 }
 

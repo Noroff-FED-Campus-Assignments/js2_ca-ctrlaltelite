@@ -24,17 +24,15 @@ async function insertProfilePicture(url, data) {
             body: JSON.stringify(data)
         };
         const response = await fetch(url, headers);
-        // console.log(response);
         const jsonResponse = await response.json();
-        // console.log(jsonResponse);
+
 
         for (let i = 0; i < jsonResponse.length; i++) {
-            // console.log(jsonResponse[i].author);
             if (i === 3) {
                 break;
             }
             const profileContainer = jsonResponse[i].author;
-            // console.log(profileContainer);
+
             profileFriendsContainer.innerHTML +=  `<li>
                                                         <div class="flex items-center mb-2">
                                                             <img src="${profileContainer.avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">

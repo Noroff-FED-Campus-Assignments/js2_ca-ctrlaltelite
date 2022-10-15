@@ -5,7 +5,6 @@ async function registerUser(event) {
   const userEmail = document.querySelector("#user-email").value;
   const userPassword = document.querySelector("#user-password").value;
 
-  console.log(userName, userEmail, userPassword);
   try {
     const response = await fetch("https://nf-api.onrender.com/api/v1/social/auth/register", {
       method: "POST",
@@ -18,10 +17,10 @@ async function registerUser(event) {
         "Content-type": "application/json; charset=UTF-8",
       },
     });
-    console.log(response);
+
     if (response.ok) {
       const json = await response.json();
-      console.log(json);
+
       document.querySelector(".form-container").classList.add("hidden");
       document.querySelector(".register-successful").classList.remove("hidden");
     }

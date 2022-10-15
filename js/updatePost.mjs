@@ -3,9 +3,7 @@
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(id);
 
-const url = `https://nf-api.onrender.com/api/v1/social/posts/`;
 const accessToken = localStorage.getItem("accessToken");
 
 const updatePostForm = document.querySelector(".updateForm");
@@ -29,8 +27,6 @@ async function updatePost(event) {
                 body: `${requiredBodyInput}`,
             }) 
         });
-        const jsonResponse = await response.json();
-        console.log(response);
 
         if(response.ok) {
             window.location.reload();

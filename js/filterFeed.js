@@ -25,7 +25,7 @@ async function filterByCommentCount() {
   });
 
   const json = await response.json();
-  console.log(json);
+
 
   for (let i = 0; i < json.length; i++) {
     //setter limit på 2 likes, da det er få poster med mere likes
