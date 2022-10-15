@@ -20,13 +20,7 @@ const postBody = {
 
 async function getFeedPosts(url, data) {
   try {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
+
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();
@@ -83,15 +77,9 @@ async function getFeedPosts(url, data) {
   }
 }
 
-async function getSuggestionFeed(url, data) {
+async function getSuggestionFeed(url) {
   try {
-    const postData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
+
     const response = await fetch(url, headers);
 
     const jsonResponse = await response.json();

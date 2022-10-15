@@ -97,7 +97,7 @@ export async function displayPostForm(url) {
     console.log(error);
   } finally {
     const deleteBtn = document.querySelector(".deleteBtn");
-    const updatePost = document.querySelector(".updatePost");
+
 
     deleteBtn.addEventListener("click", () => {
       deletePost(`${specificUrl}`);

@@ -1,4 +1,4 @@
-import { listOfFriends } from "./components/friendList.mjs";
+
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 
 const searchBarInput = document.querySelector(".search-bar");

@@ -24,7 +24,7 @@ async function addPost(event) {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      const json = await response.json();
+
       title.value = "";
       body.value = "";
       requiredTitle.classList.add("hidden");
