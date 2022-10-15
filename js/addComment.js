@@ -1,4 +1,7 @@
 import { getBaseURL } from "./components/baseURL.mjs";
+import { getLocalStorage } from "./components/getLocalStorage.mjs";
+
+const { accessToken, userName } = getLocalStorage();
 
 const querystring = document.location.search;
 const params = new URLSearchParams(querystring);
@@ -20,7 +23,7 @@ async function addComment(event) {
         body: `${commentInput}`,
       }),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
     });

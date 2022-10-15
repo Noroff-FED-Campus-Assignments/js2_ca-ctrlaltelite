@@ -8,6 +8,8 @@ async function insertUserInformation(url, data) {
     const response = await fetch(url, headers);
     const jsonResponse = await response.json();
 
+    document.querySelector(".profile-img-container").innerHTML = `<img src="${jsonResponse.avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="profile-img create-post-avatar w-8 h-8 rounded-full " alt="Profile picture">`;
+
     const profileContainer = jsonResponse;
 
     userInformation.innerHTML = `<li><p>Name: ${profileContainer.name}</p></li>
@@ -43,7 +45,6 @@ async function insertUserAvatar(url, data) {
                               </div>
                             </div>
                             `;
-
 
     userAvatarNav.innerHTML = `<div class="flex items-center ml-4 mr-4">
                                         <div class="profile-name text-xs mr-5">

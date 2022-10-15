@@ -12,8 +12,7 @@ export function createPosts(container, post, userAvatar, userName) {
         <p>${post.body}</p>
     </div>
     <div>
-        <p class="mb-4">Reactions</p>
-        <a class="bg-mainBlue text-fontWhite" href="./../../specificPost.html?id=${post.id}">Veiw post</a>
+        <a class="bg-mainBlue p-1 text-xs rounded-sm text-fontWhite" href="./../../specificPost.html?id=${post.id}&name=${userName}">View post</a>
     </div>
     
     `);
