@@ -28,7 +28,7 @@ async function getProfiles() {
       if (profileNames.includes(inputFiltered)) {
         postContainer.innerHTML += `
         <div class="flex items-center mb-2 mt-2 ml-2">
-        <img src="${json[i].avatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
+        <img src="${json[i].avatar}" onerror="this.src = './img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
         <p class="ml-2 text-sm">${json[i].name}</p>
         </div>
         `;

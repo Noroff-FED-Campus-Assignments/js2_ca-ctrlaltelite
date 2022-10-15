@@ -10,7 +10,7 @@ const id = params.get("id");
 
 const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 const followUrl = `https://nf-api.onrender.com/api/v1/social/profiles/${userName}`;
-console.log(id);
+
 
 const specificPost = document.querySelector(".specificPost");
 
@@ -28,7 +28,7 @@ export async function displayPostForm(url) {
 
     const response = await fetch(url, getData);
     const jsonResponse = await response.json();
-    // console.log(jsonResponse);
+
 
     try {
       const getData = {
@@ -41,7 +41,7 @@ export async function displayPostForm(url) {
 
       const response = await fetch(url, getData);
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+
 
       document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
 
