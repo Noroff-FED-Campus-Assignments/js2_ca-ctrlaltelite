@@ -8,20 +8,24 @@ async function updateMedia(event) {
   const avatarInput = document.querySelector(".avatar-url");
   const bannerInput = document.querySelector(".banner-url");
 
-  const response = await fetch(`https://nf-api.onrender.com/api/v1/social/profiles/${userName}/media`, {
-    method: "PUT",
-    body: JSON.stringify({
-      banner: `${bannerInput.value}`,
-      avatar: `${avatarInput.value}`,
-    }),
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-  });
+  try {
+    const response = await fetch(`https://nf-api.onrender.com/api/v1/social/profiles/${userName}/media`, {
+      method: "PUT",
+      body: JSON.stringify({
+        banner: `${bannerInput.value}`,
+        avatar: `${avatarInput.value}`,
+      }),
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-  const json = await response.json();
-  location.reload();
+    const json = await response.json();
+    location.reload();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const form = document.querySelector("#profile-media-form");
