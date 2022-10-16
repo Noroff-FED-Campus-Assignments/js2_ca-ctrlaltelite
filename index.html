@@ -13,23 +13,25 @@
     <section class="login-left hidden lg:flex lg:w-1/2 bg-[url('/img/login-bg.jpg')] bg-cover">
       <div class="img-filter w-full bg-mainBlue opacity-70"></div>
       <div class="welcome-message z-50 absolute flex flex-col items-center w-2/4 h-full justify-center">
-        <h1 class="text-fontWhite text-3xl">Come together. Connect with the world.</h1>
-        <h2 class="text-gray-300 text-xl">Make the world a smaller place.</h2>
+        <h1 class="text-fontWhite text-3xl font-headers font-thin">Come together. Connect with the world.</h1>
+        <h2 class="text-gray-300 text-xl font-headers">Make the world a smaller place.</h2>
       </div>
     </section>
     <section class="login-right bg-mainBlue w-screen h-screen flex lg:w-1/2">
       <div class="form-container bg-fontWhite w-11/12 m-auto rounded-sm p-6 flex flex-col content-center text-center md:w-2/4 lg:bg-mainBlue">
-        <h1 class="text-xl mb-3 lg:text-fontWhite lg:text-3xl">Welcome back!</h1>
-        <p class="text-xs lg:text-fontWhite">Log in to your existing account.</p>
-        <p class="text-xs lg:text-fontWhite">Dont have one yet? Sign up <a href="/newUser.html">here</a></p>
+        <h1 class="text-xl mb-3 lg:text-fontWhite lg:text-3xl font-headers font-thin">Welcome back!</h1>
+        <p class="text-xs lg:text-fontWhite font-headers font-thin">Log in to your existing account.</p>
+        <p class="text-xs lg:text-fontWhite font-headers font-thin">Dont have one yet? Sign up <a href="/newUser.html">here</a></p>
         <form id="login-form" class="mt-4">
           <input type="email" name="user-email" id="user-email" placeholder="example@stud.noroff.no" class="border testEmail rounded-sm border-solid border-mainGray p-1 w-full text-xs mb-2" />
+          <p class="email-fail hidden text-fontWhite text-xs text-left mb-2 font-headers font-thin">Wrong email address</p>
           <input type="password" name="user-password" id="user-password" placeholder="Password" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs" />
+          <p class="password-fail hidden text-fontWhite text-xs text-left mb-2 font-headers font-thin">Wrong password</p>
           <div class="flex mt-2 mb-3">
             <input type="checkbox" name="user-remember" id="user-remember" />
             <label for="user-remember" class="text-xs text-gray-500 ml-1 lg:text-gray-200">Stay signed in</label>
           </div>
-          <button type="submit" class="block bg-mainBlue w-full rounded-sm text-fontWhite p-1 text-sm lg:bg-fontWhite lg:text-mainBlue">Log in</button>
+          <button type="submit" class="block bg-mainBlue w-full rounded-sm text-fontWhite p-1 text-sm font-headers lg:bg-fontWhite lg:text-mainBlue">Log in</button>
         </form>
       </div>
     </section>
