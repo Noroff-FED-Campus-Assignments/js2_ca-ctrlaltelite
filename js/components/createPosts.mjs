@@ -1,3 +1,12 @@
+/**
+ *
+ * @param {*} container The container where you want to put your html
+ * @param {*} post Usually the loop of your json object. Eg. json[i]
+ * @param {*} userAvatar Usually json[i]author.avatar
+ * @param {*} userName Usually json[i].author.name
+ * @returns html
+ */
+
 export function createPosts(container, post, userAvatar, userName) {
   const html = (container.innerHTML += `
     <div class="userPost flex flex-col border mb-5 rounded-sm p-2">

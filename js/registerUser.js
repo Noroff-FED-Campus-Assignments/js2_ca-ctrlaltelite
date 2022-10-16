@@ -23,6 +23,10 @@ async function registerUser(event) {
 
       document.querySelector(".form-container").classList.add("hidden");
       document.querySelector(".register-successful").classList.remove("hidden");
+    } else {
+      passwordFail.classList.remove("hidden");
+      userNameFail.classList.remove("hidden");
+      emailFail.classList.remove("hidden");
     }
   } catch (error) {
     console.log(error);
@@ -32,3 +36,7 @@ async function registerUser(event) {
 const form = document.querySelector(".register-user-form");
 
 form.addEventListener("submit", registerUser);
+
+const passwordFail = document.querySelector(".password-fail");
+const userNameFail = document.querySelector(".user-fail");
+const emailFail = document.querySelector(".email-fail");
