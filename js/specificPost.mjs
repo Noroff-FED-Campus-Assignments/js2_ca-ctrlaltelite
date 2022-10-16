@@ -18,19 +18,6 @@ const accessToken = localStorage.getItem("accessToken");
 
 export async function displayPostForm(url) {
   try {
-    const getData = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    };
-
-    const response = await fetch(url, getData);
-    const jsonResponse = await response.json();
-
-
-    try {
       const getData = {
         method: "GET",
         headers: {
@@ -93,16 +80,7 @@ export async function displayPostForm(url) {
         unfollow(`${followUrl}/unfollow`);
       });
     }
-  } catch (error) {
-    console.log(error);
-  } finally {
-    const deleteBtn = document.querySelector(".deleteBtn");
-
-
-    deleteBtn.addEventListener("click", () => {
-      deletePost(`${specificUrl}`);
-    });
   }
-}
+
 
 displayPostForm(`${specificUrl}?_author=true`);

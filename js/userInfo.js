@@ -2,8 +2,9 @@
 const userInformation = document.querySelector("#user-info");
 const userAvatar = document.querySelector("#user-avatar");
 const userAvatarNav = document.querySelector("#user-avatar-nav");
+const user = localStorage.getItem("userName");
 
-async function insertUserInformation(url, data) {
+async function insertUserInformation(url) {
   try {
     const response = await fetch(url, headers);
     const jsonResponse = await response.json();
@@ -20,7 +21,7 @@ async function insertUserInformation(url, data) {
   }
 }
 
-async function insertUserAvatar(url, data) {
+async function insertUserAvatar(url) {
   try {
     const response = await fetch(url, headers);
     const jsonResponse = await response.json();
@@ -57,5 +58,5 @@ async function insertUserAvatar(url, data) {
   }
 }
 
-insertUserAvatar(`${url}/api/v1/social/profiles/jowander`, postBody);
-insertUserInformation(`${url}/api/v1/social/profiles/jowander`, postBody);
+insertUserAvatar(`${url}/api/v1/social/profiles/${user}`, postBody);
+insertUserInformation(`${url}/api/v1/social/profiles/${user}`, postBody);

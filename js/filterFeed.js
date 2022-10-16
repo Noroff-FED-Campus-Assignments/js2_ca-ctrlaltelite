@@ -1,7 +1,7 @@
 import { createPosts } from "./components/createPosts.mjs";
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 
-const { accessToken, userName } = getLocalStorage();
+const { accessToken } = getLocalStorage();
 
 const popularPostsBtn = document.querySelector(".popular");
 const feedBtn = document.querySelector(".feed");
@@ -58,7 +58,6 @@ async function getFeedPosts() {
 
     container.innerHTML = "";
     for (let i = 0; i < json.length; i++) {
-      console.log(json[i]);
 
       createPosts(container, json[i], json[i].author.avatar, json[i].author.name);
     }

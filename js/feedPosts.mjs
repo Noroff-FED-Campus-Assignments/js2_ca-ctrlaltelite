@@ -6,7 +6,7 @@ const url = "https://nf-api.onrender.com";
 
 const feedContainer = document.querySelector("#post-section");
 const suggestionFeed = document.querySelector("#suggestions-post");
-const modalForm = document.querySelector(".modalContainer");
+
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -20,7 +20,7 @@ const postBody = {
   body: "",
 };
 
-async function getFeedPosts(url, data) {
+async function getFeedPosts(url) {
   try {
     const response = await fetch(url, headers);
 
@@ -28,7 +28,7 @@ async function getFeedPosts(url, data) {
 
     for (let i = 0; i < jsonResponse.length; i++) {
       const postInformation = jsonResponse[i];
-      // console.log(jsonResponse[i]._count.reactions);
+
 
       if (i <= 9) {
         createPosts(feedContainer, postInformation, postInformation.author.avatar, postInformation.author.name);
@@ -49,24 +49,7 @@ async function getSuggestionFeed(url) {
       if (i === 3) {
         break;
       }
-      const postInformation = jsonResponse[i];
-      suggestionFeed.innerHTML = `<div class="w-full border rounded-sm border-mainGrey p-2">
-                                    <div class="flex items-center mb-4">
-                                        <img
-                                            src="${postInformation.author.avatar}"
-                                            class="w-6 h-6 rounded-full"
-                                            alt="Profile picture"
-                                            onerror="this.src = '/img/userPlacegolder.png';"
-                                        />
-                                        <h3 class="ml-2 text-sm">${postInformation.author.name}</h3>
-                                    </div>
-                                        <div class="text-sm mb-3">${postInformation.title}
-                                            <img src="${postInformation.media}" />
-                                            <p>${postInformation.body}</p>
-                               
-                                        </div>
-                                        <a href=./../specificPost.html?id=${postInformation.id}  class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
-                                </div>`;
+      createPosts(suggestionFeed, jsonResponse[i], jsonResponse[i].author.avatar, jsonResponse[i].author.name);
     }
   } catch (error) {
     console.log(error);

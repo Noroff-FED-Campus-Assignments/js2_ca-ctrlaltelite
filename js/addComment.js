@@ -1,7 +1,7 @@
 import { getBaseURL } from "./components/baseURL.mjs";
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 
-const { accessToken, userName } = getLocalStorage();
+const { accessToken } = getLocalStorage();
 
 const querystring = document.location.search;
 const params = new URLSearchParams(querystring);
@@ -29,7 +29,6 @@ async function addComment(event) {
     });
 
     const json = await response.json();
-    console.log(json);
 
     location.reload();
   } catch (error) {

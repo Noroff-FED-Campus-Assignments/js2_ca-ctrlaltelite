@@ -19,7 +19,6 @@ async function registerUser(event) {
     });
 
     if (response.ok) {
-      const json = await response.json();
 
       document.querySelector(".form-container").classList.add("hidden");
       document.querySelector(".register-successful").classList.remove("hidden");

@@ -32,7 +32,6 @@ async function updatePost(event) {
             window.location.reload();
         }
 
-        console.log(title.value);
     } catch (error) {
         console.log(error);
     }

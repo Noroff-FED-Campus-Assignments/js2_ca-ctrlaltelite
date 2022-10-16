@@ -2,7 +2,7 @@
 import { getLocalStorage } from "./components/getLocalStorage.mjs";
 
 const searchBarInput = document.querySelector(".search-bar");
-const { accessToken, userName } = getLocalStorage();
+const { accessToken } = getLocalStorage();
 
 async function getProfiles() {
   const inputFromSearch = searchBarInput.value;
