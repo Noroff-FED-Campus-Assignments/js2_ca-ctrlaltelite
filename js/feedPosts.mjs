@@ -59,7 +59,7 @@ async function getSuggestionFeed(url) {
                                             alt="Profile picture"
                                             onerror="this.src = '/img/userPlacegolder.png';"
                                         />
-                                        <h3 class="ml-2 text-sm">${postInformation.author.name}</h3>
+                                        <h3 class="ml-2 text-sm font-headers">${postInformation.author.name}</h3>
                                     </div>
                                         <div class="text-sm mb-3">${postInformation.title}
                                             <img src="${postInformation.media}" />

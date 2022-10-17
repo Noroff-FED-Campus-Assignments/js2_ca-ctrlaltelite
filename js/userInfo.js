@@ -21,13 +21,12 @@ async function insertUserInformation(url) {
 
     const profileContainer = jsonResponse;
 
-    userInformation.innerHTML = `<li><p>Name: ${profileContainer.name}</p></li>
-                                        <li><p>Email: ${profileContainer.email}</p><li>
-                                        <p>Lives: Stavanger, Norway</p></li></li>`;
+    userInformation.innerHTML = `<li><p class="font-headers">${profileContainer.name}</p></li>
+                                        <li><p class="font-headers">${profileContainer.email}</p><li>
+                                        <p class="font-headers">Stavanger, Norway</p></li></li>`;
   } catch (error) {
     console.log(error);
   }
 }
-
 
 insertUserInformation(`${url}/api/v1/social/profiles/${user}`);
