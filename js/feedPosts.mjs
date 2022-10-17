@@ -50,6 +50,7 @@ async function getSuggestionFeed(url) {
         break;
       }
       const postInformation = jsonResponse[i];
+
       suggestionFeed.innerHTML = `<div class="w-full border rounded-sm border-mainGrey p-2">
                                     <div class="flex items-center mb-4">
                                         <img
@@ -65,7 +66,7 @@ async function getSuggestionFeed(url) {
                                             <p>${postInformation.body}</p>
                                
                                         </div>
-                                        <a href=./../specificPost.html?id=${postInformation.id}  class="bg-mainGray p-1 text-xs rounded-sm w-1/4 closeModal openModal">View post</a>
+                                        <a class="bg-mainBlue p-1 text-xs rounded-sm text-fontWhite" href="./../../specificPost.html?id=${postInformation.id}&name=${postInformation.author.name}">View post</a>
                                 </div>`;
     }
   } catch (error) {
