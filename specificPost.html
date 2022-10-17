@@ -14,7 +14,7 @@
     <script src="./js/unfollow.mjs" type="module"></script>
     <script src="./js/addComment.js" type="module"></script>
     <script src="./js/addReaction.js" type="module"></script>
-    <!-- <script src="./js/userAvatarNav.js" defer></script> -->
+    <script src="./js/showCommens.js" type="module"></script>
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
   <body class="h-full">
@@ -109,8 +109,8 @@
         </div>
       </div> 
     </nav>
-
-    <div class="thisPost space-y-4 h-100 w-100 mb-8  bg-fontWhite">
+<button class="back-btn rounded-sm bg-mainBlue text-fontWhite p-1 text-xs font-headers font-thin ml-4">Back</button>
+    <div class="thisPost space-y-4 h-100 w-11/12 mb-8 m-auto bg-fontWhite">
         <div class="specificPost flex flex-col justify-center">
 
         </div>
@@ -128,7 +128,7 @@
                   <label for="">Body</label>
                   <input class="required-body p-1 border bg-border-mainBlue" type="text">
                 </div>
-                  <div class="flex justify-center my-8">
+                  <div class="edit-post flex justify-center my-8">
                     <button class="bg-mainGray mx-4 p-1 rounded-sm updatePost" type="submit">Edit Post</button>
                     <button class="bg-red-500 mx-4 p-1 rounded-sm deleteBtn">Delete</button>
                   </div>
@@ -149,6 +149,9 @@
           <button type="submit" class="commentBtn bg-mainBlue text-fontWhite text-sm p-1">Add comment</button>
         </form>
       </div>
+      <hr class="w-11/12 m-auto">
+      <h3 class="w-11/12 m-auto font-headers">Comments</h3>
+      <div class="show-comments-container w-1/2 m-auto"></div>
 
     </div>
   </body>
