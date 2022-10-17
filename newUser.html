@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Unison is the number one social media to connect with the people you love" />
+    <title>Unison</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <script src="/js/registerUser.js" defer></script>
+  </head>
+  <body class="flex">
+    <section class="login-right bg-mainBlue w-screen h-screen flex lg:w-1/2">
+      <div class="register-successful hidden bg-fontWhite w-11/12 m-auto rounded-sm p-6 flex flex-col content-center text-center md:w-2/4">
+        <p class="font-headers text-lg">Register successful!</p>
+
+        <a href="./index.html" class="underline font-headers text-mainBlue">Log in here</a>
+      </div>
+      <div class="form-container bg-fontWhite w-11/12 m-auto rounded-sm p-6 flex flex-col content-center text-center md:w-2/4 lg:bg-mainBlue">
+        <h1 class="text-xl mb-3 lg:text-fontWhite lg:text-3xl font-headers font-thin">Create a new account</h1>
+        <form class="register-user-form mt-4">
+          <input type="text" name="user-name" id="user-name" placeholder="Username*" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs mb-2" />
+          <p class="user-fail hidden text-fontWhite text-xs text-left mb-2 font-headers font-thin">This field is required</p>
+          <input type="email" name="user-email" id="user-email" placeholder="example@stud.noroff.no*" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs mb-2" />
+          <p class="email-fail hidden text-fontWhite text-xs text-left mb-2 font-headers font-thin">Please use @noroff.no or stud.noroff.no</p>
+          <input type="password" name="user-password" id="user-password" placeholder="Password*" class="border rounded-sm border-solid border-mainGray p-1 w-full text-xs mb-4" />
+          <p class="password-fail hidden text-fontWhite text-xs text-left mb-2 font-headers font-thin">Password must be at least 8 characters</p>
+          <button type="submit" class="block bg-mainBlue w-full rounded-sm text-fontWhite font-headers p-1 text-sm lg:bg-fontWhite lg:text-mainBlue">Create user</button>
+        </form>
+      </div>
+    </section>
+    <section class="login-left hidden lg:flex lg:w-1/2 bg-[url('/img/new-user-bg.jpg')] bg-cover">
+      <div class="img-filter w-full bg-mainBlue opacity-70"></div>
+    </section>
+  </body>
+</html>

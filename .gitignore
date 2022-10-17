@@ -1,0 +1,12 @@
+# - # - marks line as a comment
+# - * - matches 0 or more characters
+# - ? - matches 1 character
+# - [abc] - matches a, b, or c
+# - ** - matches nested directories - a/**/z matches
+
+# Dependencies
+node_modules
+.vscode
+dist
+out
+DS_store
