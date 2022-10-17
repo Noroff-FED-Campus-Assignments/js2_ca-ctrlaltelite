@@ -30,19 +30,6 @@ export async function displayPostForm(url) {
     const jsonResponse = await response.json();
 
 
-    try {
-      const getData = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      };
-
-      const response = await fetch(url, getData);
-      const jsonResponse = await response.json();
-
-
       document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
 
       if (jsonResponse.author.name === userName) {
@@ -50,28 +37,31 @@ export async function displayPostForm(url) {
         formContainer.classList.remove("hidden");
       }
 
-      specificPost.innerHTML = `<div class="flex m-4">
-
-                                        <img
-                                        src="${jsonResponse.author.avatar}"
-                                        class="w-8 h-8 rounded-full"
-                                        alt="Profile picture"
-                                        onerror="this.src = '/img/userPlacegolder.png';"
-                                         />
+      specificPost.innerHTML = `<div class="flex justify-center items-center m-4">
+                                  <div class="">
+                                    <img
+                                    src="${jsonResponse.author.avatar}"
+                                    class="w-8 h-8 rounded-full"
+                                    alt="Profile picture"
+                                    onerror="this.src = '/img/userPlacegolder.png';"
+                                    />
+                                  </div>
                                         <h3 class="m-4 text-center">${jsonResponse.author.name}</h3>
-
                                     </div>    
-                                    <div>
-                                        <button class="bg-mainGray p-60 followBtn">Follow</button>
-                                        <button class="bg-mainGray p-60 unfollowBtn">Unfollow</button>
+                                    <div class="flex justify-center py-4">
+                                        <button class="bg-mainGray mx-4 p-2 rounded-sm followBtn">Follow</button>
+                                        <button class="bg-mainGray mx-4 p-2 rounded-sm unfollowBtn">Unfollow</button>
                                     </div>
-                                    </div>
-                                    <div class="mx-4"">${jsonResponse.title}
-                                        <img
-                                        class="" 
-                                        src="${jsonResponse.media}" />
-                                        <p>${jsonResponse.body}</p>
-                                        <hr class="mx-4">
+                                    <div class="flex flex-col my-8">
+                                      <div class="border bg-border-mainBlue self-center">
+                                        <h4 class="flex justify-center text-xl font-bold my-8 mx-auto">${jsonResponse.title}<h4>
+                                        <div class="max-w-lg my-8">
+                                          <img
+                                          class="mx-auto" 
+                                          src="${jsonResponse.media}" />
+                                          <p class="my-8">${jsonResponse.body}</p>
+                                        </div>
+                                      </div>
                                     </div>`;
     } catch (error) {
       console.log(error);
@@ -93,16 +83,6 @@ export async function displayPostForm(url) {
         unfollow(`${followUrl}/unfollow`);
       });
     }
-  } catch (error) {
-    console.log(error);
-  } finally {
-    const deleteBtn = document.querySelector(".deleteBtn");
-
-
-    deleteBtn.addEventListener("click", () => {
-      deletePost(`${specificUrl}`);
-    });
-  }
 }
 
 displayPostForm(`${specificUrl}?_author=true`);
