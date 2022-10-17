@@ -10,9 +10,9 @@
 export function createPosts(container, post, userAvatar, userName) {
   const html = (container.innerHTML += `
     <div class="userPost flex flex-col border mb-5 rounded-sm p-2">
-    <div class="flex">
+    <div class="flex items-center">
         <img src="${userAvatar}" onerror="this.src = '/img/userPlacegolder.png';" class="w-8 h-8 rounded-full">
-        <p class="ml-2">${userName}</p>
+        <p class="ml-2 font-headers">${userName}</p>
     </div>
     
     <div class="mb-4 mt-3">
