@@ -11,7 +11,6 @@ const id = params.get("id");
 const specificUrl = `https://nf-api.onrender.com/api/v1/social/posts/${id}`;
 const followUrl = `https://nf-api.onrender.com/api/v1/social/profiles/${userName}`;
 
-
 const specificPost = document.querySelector(".specificPost");
 
 const accessToken = localStorage.getItem("accessToken");
@@ -29,15 +28,14 @@ export async function displayPostForm(url) {
     const response = await fetch(url, getData);
     const jsonResponse = await response.json();
 
+    document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
 
-      document.querySelector(".likes-count").innerHTML = jsonResponse._count.reactions;
+    if (jsonResponse.author.name === userName) {
+      const formContainer = document.querySelector(".edit-post");
+      formContainer.classList.remove("hidden");
+    }
 
-      if (jsonResponse.author.name === userName) {
-        const formContainer = document.querySelector(".editAndDelete");
-        formContainer.classList.remove("hidden");
-      }
-
-      specificPost.innerHTML = `<div class="flex justify-center items-center m-4">
+    specificPost.innerHTML = `<div class="flex justify-center items-center m-4">
                                   <div class="">
                                     <img
                                     src="${jsonResponse.author.avatar}"
@@ -52,37 +50,43 @@ export async function displayPostForm(url) {
                                         <button class="bg-mainGray mx-4 p-2 rounded-sm followBtn">Follow</button>
                                         <button class="bg-mainGray mx-4 p-2 rounded-sm unfollowBtn">Unfollow</button>
                                     </div>
-                                    <div class="flex flex-col my-8">
-                                      <div class="border bg-border-mainBlue self-center">
+                                    <div class="flex flex-col my-8 w-1/2 m-auto">
+                                      <div class="border bg-border-mainBlue self-center w-full">
                                         <h4 class="flex justify-center text-xl font-bold my-8 mx-auto">${jsonResponse.title}<h4>
                                         <div class="max-w-lg my-8">
                                           <img
                                           class="mx-auto" 
                                           src="${jsonResponse.media}" />
-                                          <p class="my-8">${jsonResponse.body}</p>
+                                          <p class="my-8 text-center">${jsonResponse.body}</p>
                                         </div>
                                       </div>
                                     </div>`;
-    } catch (error) {
-      console.log(error);
-    } finally {
-      const deleteBtn = document.querySelector(".deleteBtn");
-      const followBtn = document.querySelector(".followBtn");
-      const unfollowBtn = document.querySelector(".unfollowBtn");
+  } catch (error) {
+    console.log(error);
+  } finally {
+    const deleteBtn = document.querySelector(".deleteBtn");
+    const followBtn = document.querySelector(".followBtn");
+    const unfollowBtn = document.querySelector(".unfollowBtn");
 
-      deleteBtn.addEventListener("click", () => {
-        deletePost(`${specificUrl}`);
-      });
+    deleteBtn.addEventListener("click", () => {
+      deletePost(`${specificUrl}`);
+    });
 
-      followBtn.addEventListener("click", () => {
-        follow(`${followUrl}/follow`);
-      });
+    followBtn.addEventListener("click", () => {
+      follow(`${followUrl}/follow`);
+    });
 
-      unfollowBtn.addEventListener("click", () => {
-        console.log("click");
-        unfollow(`${followUrl}/unfollow`);
-      });
-    }
+    unfollowBtn.addEventListener("click", () => {
+      console.log("click");
+      unfollow(`${followUrl}/unfollow`);
+    });
+  }
 }
 
 displayPostForm(`${specificUrl}?_author=true`);
+
+const backBtn = document.querySelector(".back-btn");
+
+backBtn.addEventListener("click", () => {
+  window.history.back();
+});
